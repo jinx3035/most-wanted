@@ -11,7 +11,7 @@ printAllToConsole(data);
 */
 
 function initSearch(data){
-	alert("Hello World");
+	alert("Hello Braeden");
 
 	// get all the information you need to run the search
 	var yourName = prompt("Who do you want to search for?");
