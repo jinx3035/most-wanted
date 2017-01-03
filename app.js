@@ -307,9 +307,6 @@ function initSearch(data){
 
 	// then pass that info to the respective function.
 	var result = getPersonInfo(firstname, lastname)
-		if (result == null){
-			greeting = "Try another name"
-		}
 
 	// once the search is done, pass the results to the responder function
 	responder(result);
