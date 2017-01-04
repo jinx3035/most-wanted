@@ -54,10 +54,10 @@ function mainMenu(person, people){
 
 			break;
 		case "restart":
-
+			initMostWanted(people)
 			break;
 		case "quit":
-
+			return;
 			break;
 		default:
 		alert("Please enter valid search criteria.");
