@@ -2,7 +2,7 @@ function initMostWanted(people){
 	alert("Welcome to our secret government search engine!");
 	do{
 		var searchType = prompt("Do you want to search by name, attributes or family? Enter word 'name', 'attributes' or 'family' here.")
-	}while(!(searchType == "name" || searchType == "attributes"));
+	}while(!(searchType == "name" || searchType == "attributes" || searchtype == "family"));
 	switch(searchType){
 		case "name":
 			var person = getPerson(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
