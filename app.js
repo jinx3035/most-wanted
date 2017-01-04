@@ -6,7 +6,7 @@ function initMostWanted(people){
 	switch(searchType){
 		case "name":
 			var person = searchByPerson(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
-			mainMenu(person, poeople);
+			mainMenu(person, people);
 		break;
 		case "attributes":
 			var gender = prompt("What is their gender? ");
@@ -41,11 +41,12 @@ function initMostWanted(people){
 
 function searchByPerson(firstName, lastName, people){
 	var namefilter = people.filter(person => person.firstName === firstName && person.lastName === lastName);
-	mainMenu(people)
+	mainMenu(people);
+	return namefilter;
 }
 
 function mainMenu(person, people){
-	var displayOption = prompt("Would you like to Restart or Quit?");
+	var displayOption = prompt("Would you like to start over?");
 	switch(displayOption){
 		case "person":
 			getPerson();
