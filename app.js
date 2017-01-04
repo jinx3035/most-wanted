@@ -9,7 +9,7 @@ function initMostWanted(people){
 			mainMenu(person, poeople);
 		break;
 		case "attributes":
-			var gender = prompt("What is the gender? ");
+			var gender = prompt("What is their gender? ");
 
 			var occupation = prompt("What is their occupation?");
 			
@@ -24,9 +24,11 @@ function initMostWanted(people){
 			searchByAttrs(gender, occupation, height, weight, age, eyeColor, people);
 		break;
 		case "family":
+			var currentSpouse = prompt("Who is their spouse?");
+			
 			var parents = prompt("Who are the parents?");
 
-			var currentSpouse = prompt("Who is their spouse?");
+			
 
 			searchByFam(parents, currentSpouse);
 		break;
@@ -48,7 +50,7 @@ function mainMenu(person, people){
 function searchByAttrs(gender, occupation, height, weight, age, eyeColor, people){
 
 }
-
+function searchByFam(currentspouse, parents)
 /*function responder(results){
 	// results may be a list of strings, an object, or a single string.
 	alert(results);
