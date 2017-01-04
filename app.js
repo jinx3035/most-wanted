@@ -1,33 +1,34 @@
+function initMostWanted(data){
+	alert("Welcome to our secret government search engine!");
+	do{
+		var searchType = prompt("Do you want to search by name or attributes? Enter word 'name' or 'attributes'.")
+	}while(!(searchType == "name" || searchType == "attributes"));
+	switch(searchType){
+		case "name":
+			var person = getPerson(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
+			mainMenu(person, poeople);
+		break;
+		case "attributes":
 
-/*  Remove this from your final submission
-function printAllToConsole(dataObj){
-	for (var key in dataObj) {
-		if (dataObj.hasOwnProperty(key)) {
-			console.log(key + " -> " + JSON.stringify(dataObj[key]));
-		}
+		break;
+		default:
+		alert("There was an error processing your request.");
+		initMostWanted(data);
 	}
 }
-printAllToConsole(data);
-*/
 
-function initSearch(data){
-	alert("Welcome to our secret government search engine!");
-	// get all the information you need to run the search
-	var lastname = prompt("What is the last name!");
-	var firstname = prompt("And now the first name please?");
-	
-	// then pass that info to the respective function.
-	var result = getPersonInfo(lastname,firstname)
-		}
+function getPerson(firstName, lastName, data){
 	// once the search is done, pass the results to the responder function
-	responder(results);
+}
 
+function mainMenu(person, data){
 
+}
 
-function responder(results){
+/*function responder(results){
 	// results may be a list of strings, an object, or a single string.
 	alert(results);
-}
+
 
 
 function getPersonInfo(lastname,firstname){
@@ -47,3 +48,4 @@ function getFamily(){
 
 
 // there will be much more here, and some of the code above will certainly change
+*/
