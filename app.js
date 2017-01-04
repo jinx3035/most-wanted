@@ -25,8 +25,8 @@ function initMostWanted(people){
 		break;
 		case "family":
 			var currentSpouse = prompt("Who is their spouse?");
-			
-			var parents = prompt("Who are the parents?");
+
+			var parents = prompt("Do they have parents?");
 
 			
 
