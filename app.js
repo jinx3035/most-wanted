@@ -5,7 +5,7 @@ function initMostWanted(people){
 	}while(!(searchType == "name" || searchType == "attributes" || searchType == "family"));
 	switch(searchType){
 		case "name":
-			var person = getPerson(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
+			var person = searchByPerson(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
 			mainMenu(person, poeople);
 		break;
 		case "attributes":
@@ -39,25 +39,19 @@ function initMostWanted(people){
 }
 
 
-function getPerson(firstName, lastName, people){
+function searchByPerson(firstName, lastName, people){
 	// once the search is done, pass the results to the responder function
 	
 }
 
 function mainMenu(person, people){
 <<<<<<< HEAD
-	var displayOption = prompt("Do you want to know the persons 'info', 'family', next of 'kin', or 'descendents'? Type the option you want or 'restart' or 'quit'");
+	var displayOption = prompt("Would you like to Restart or Quit?");
 	switch(displayOption){
-		case "info":
-			
-			break;
-		case "family":
+		case "person":
 
 			break;
-		case "kin":
-
-			break;
-		case "descendents":
+		case "people":
 
 			break;
 		case "restart":
@@ -66,11 +60,12 @@ function mainMenu(person, people){
 		case "quit":
 
 			break;
+		default:
+		alert("Please enter valid search criteria.");
+		initMostWanted(people)
 	}
-=======
 	var info = prompt("Do you want to know the persons 'info', the persons 'family', their next of 'kin', their 'descendents', or 'restart', or 'quit'");
 
->>>>>>> 5710ab87ccb3e4a8827f3a48a343778d24e3091a
 }
 function searchByAttrs(gender, occupation, height, weight, age, eyeColor, people){
 
@@ -80,8 +75,7 @@ function searchByFam(currentspouse, parents, people){
 
 }
 
-<<<<<<< HEAD
-function getInfo(){
+function getPerson(){
 
 }
 
