@@ -1,5 +1,5 @@
 function initMostWanted(people){
-	alert("Welcome to our secret government search engine!");
+	alert("Welcome to our Super Secret government search engine!");
 	do{
 		var searchType = prompt("Do you want to search by name, attributes or family? Enter word 'name', 'attributes' or 'family' here.")
 	}while(!(searchType == "name" || searchType == "attributes" || searchType == "family"));
@@ -45,7 +45,6 @@ function searchByPerson(firstName, lastName, people){
 }
 
 function mainMenu(person, people){
-<<<<<<< HEAD
 	var displayOption = prompt("Would you like to Restart or Quit?");
 	switch(displayOption){
 		case "person":
@@ -98,9 +97,9 @@ function restart(){
 function quit(){
 
 }
-=======
 
->>>>>>> 5710ab87ccb3e4a8827f3a48a343778d24e3091a
+
+
 /*function responder(results){
 	// results may be a list of strings, an object, or a single string.
 	alert(results);
