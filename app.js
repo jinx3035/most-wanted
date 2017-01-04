@@ -20,7 +20,7 @@ function initSearch(data){
 	var result = getPersonInfo(lastname,firstname)
 		}
 	// once the search is done, pass the results to the responder function
-	responder(results);
+	responder(result);
 
 
 
