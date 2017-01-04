@@ -33,7 +33,27 @@ function getPerson(firstName, lastName, people){
 }
 
 function mainMenu(person, people){
+	var info = prompt("Do you want to know the persons 'info', the persons 'family', their next of 'kin', their 'descendents', or 'restart', or 'quit'");
+	switch(info){
+		case "info":
 
+			break;
+		case "family":
+
+			break;
+		case "kin":
+
+			break;
+		case "descendents":
+
+			break;
+		case "restart":
+
+			break;
+		case "quit":
+
+			break;
+	}
 }
 
 /*function responder(results){
