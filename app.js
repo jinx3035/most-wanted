@@ -1,4 +1,4 @@
-function initMostWanted(data){
+function initMostWanted(people){
 	alert("Welcome to our secret government search engine!");
 	do{
 		var searchType = prompt("Do you want to search by name or attributes? Enter word 'name' or 'attributes'.")
@@ -9,6 +9,16 @@ function initMostWanted(data){
 			mainMenu(person, poeople);
 		break;
 		case "attributes":
+			var gender = prompt("What is the gender?");
+			
+			var height = prompt("What is the height?");
+
+			var weight = prompt("What is the weight?");
+
+			var age = prompt("What is the age?");
+
+			var eyeColor = prompt("What is the eye color?");
+
 
 		break;
 		default:
