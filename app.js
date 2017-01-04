@@ -1,4 +1,4 @@
-function initMostWanted(data){
+function initMostWanted(people){
 	alert("Welcome to our secret government search engine!");
 	do{
 		var searchType = prompt("Do you want to search by name or attributes? Enter word 'name' or 'attributes'.")
@@ -13,16 +13,16 @@ function initMostWanted(data){
 		break;
 		default:
 		alert("There was an error processing your request.");
-		initMostWanted(data);
+		initMostWanted(people);
 	}
 }
 
-function getPerson(firstName, lastName, data){
+function getPerson(firstName, lastName, people){
 	// once the search is done, pass the results to the responder function
 	responder(result);
 }
 
-function mainMenu(person, data){
+function mainMenu(person, people){
 
 }
 
