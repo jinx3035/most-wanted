@@ -40,7 +40,8 @@ function initMostWanted(people){
 
 
 function searchByPerson(firstName, lastName, people){
-	filter()
+	var namefilter = people.filter(person => person.firstName === firstName && person.lastName === lastName);
+	mainMenu(people)
 }
 
 function mainMenu(person, people){
@@ -60,9 +61,9 @@ function mainMenu(person, people){
 			break;
 		default:
 		alert("Please enter valid search criteria.");
-		initMostWanted(people)
+		
 	}
-	var info = prompt("Do you want to know the persons 'info', the persons 'family', their next of 'kin', their 'descendents', or 'restart', or 'quit'");
+	
 
 }
 function searchByAttrs(gender, occupation, height, weight, age, eyeColor, people){
@@ -74,7 +75,7 @@ function searchByFam(currentspouse, parents, people){
 }
 
 function getPerson(){
-	filter
+	
 }
 
 function getpeople(){
@@ -89,8 +90,17 @@ function quit(){
 
 }
 
+function namefilter(){
 
+}
 
+function fname(){
+
+}
+
+function lname(){
+
+}
 /*function responder(results){
 	// results may be a list of strings, an object, or a single string.
 	alert(results);
