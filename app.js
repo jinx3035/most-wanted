@@ -50,7 +50,9 @@ function mainMenu(person, people){
 function searchByAttrs(gender, occupation, height, weight, age, eyeColor, people){
 
 }
-function searchByFam(currentspouse, parents)
+function searchByFam(currentspouse, parents, people){
+
+}
 /*function responder(results){
 	// results may be a list of strings, an object, or a single string.
 	alert(results);
