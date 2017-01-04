@@ -45,6 +45,7 @@ function getPerson(firstName, lastName, people){
 }
 
 function mainMenu(person, people){
+<<<<<<< HEAD
 	var displayOption = prompt("Do you want to know the persons 'info', 'family', next of 'kin', or 'descendents'? Type the option you want or 'restart' or 'quit'");
 	switch(displayOption){
 		case "info":
@@ -66,14 +67,20 @@ function mainMenu(person, people){
 
 			break;
 	}
+=======
+	var info = prompt("Do you want to know the persons 'info', the persons 'family', their next of 'kin', their 'descendents', or 'restart', or 'quit'");
+
+>>>>>>> 5710ab87ccb3e4a8827f3a48a343778d24e3091a
 }
 function searchByAttrs(gender, occupation, height, weight, age, eyeColor, people){
 
 }
+
 function searchByFam(currentspouse, parents, people){
 
 }
 
+<<<<<<< HEAD
 function getInfo(){
 
 }
@@ -97,6 +104,9 @@ function restart(){
 function quit(){
 
 }
+=======
+
+>>>>>>> 5710ab87ccb3e4a8827f3a48a343778d24e3091a
 /*function responder(results){
 	// results may be a list of strings, an object, or a single string.
 	alert(results);
