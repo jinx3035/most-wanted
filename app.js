@@ -78,15 +78,7 @@ function getPerson(){
 
 }
 
-function getFamily(){
-
-}
-
-function getKin(){
-
-}
-
-function getDescendents(){
+function getpeople(){
 
 }
 
