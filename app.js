@@ -299,7 +299,7 @@ printAllToConsole(data);
 */
 
 function initSearch(data){
-	alert("Hello Joe");
+	alert("Welcome to our secret government search engine!");
 	// get all the information you need to run the search
 	var firstname = prompt("What is the first name?");
 	var lastname = prompt("What is the last name");
