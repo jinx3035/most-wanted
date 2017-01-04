@@ -1,15 +1,17 @@
 function initMostWanted(people){
 	alert("Welcome to our secret government search engine!");
 	do{
-		var searchType = prompt("Do you want to search by name or attributes? Enter word 'name' or 'attributes'.")
-	}while(!(searchType == "name" || searchType == "attributes"));
+		var searchType = prompt("Do you want to search by name, attributes or family? Enter word 'name', 'attributes' or 'family' here.")
+	}while(!(searchType == "name" || searchType == "attributes" || searchType == "family"));
 	switch(searchType){
 		case "name":
 			var person = getPerson(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
 			mainMenu(person, poeople);
 		break;
 		case "attributes":
-			var gender = prompt("What is the gender?");
+			var gender = prompt("What is their gender? ");
+
+			var occupation = prompt("What is their occupation?");
 			
 			var height = prompt("What is the height?");
 
@@ -19,7 +21,16 @@ function initMostWanted(people){
 
 			var eyeColor = prompt("What is the eye color?");
 
+			searchByAttrs(gender, occupation, height, weight, age, eyeColor, people);
+		break;
+		case "family":
+			var currentSpouse = prompt("Who is their spouse?");
 
+			var parents = prompt("Do they have parents?");
+
+			
+
+			searchByFam(parents, currentSpouse);
 		break;
 		default:
 		alert("There was an error processing your request.");
@@ -27,9 +38,10 @@ function initMostWanted(people){
 	}
 }
 
+
 function getPerson(firstName, lastName, people){
 	// once the search is done, pass the results to the responder function
-	responder(result);
+	
 }
 
 function mainMenu(person, people){
@@ -55,7 +67,12 @@ function mainMenu(person, people){
 			break;
 	}
 }
+function searchByAttrs(gender, occupation, height, weight, age, eyeColor, people){
 
+}
+function searchByFam(currentspouse, parents, people){
+
+}
 /*function responder(results){
 	// results may be a list of strings, an object, or a single string.
 	alert(results);
