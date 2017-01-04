@@ -1,7 +1,7 @@
 function initMostWanted(people){
 	alert("Welcome to our secret government search engine!");
 	do{
-		var searchType = prompt("Do you want to search by name or attributes? Enter word 'name' or 'attributes'.")
+		var searchType = prompt("Do you want to search by name, attributes or family? Enter word 'name', 'attributes' or family.")
 	}while(!(searchType == "name" || searchType == "attributes"));
 	switch(searchType){
 		case "name":
@@ -10,6 +10,8 @@ function initMostWanted(people){
 		break;
 		case "attributes":
 			var gender = prompt("What is the gender?");
+
+			var occupation = prompt("What is their occupation?");
 			
 			var height = prompt("What is the height?");
 
@@ -18,6 +20,11 @@ function initMostWanted(people){
 			var age = prompt("What is the age?");
 
 			var eyeColor = prompt("What is the eye color?");
+		break;
+		case "family":
+			var parents = prompt("Who are the parents?");
+
+			var currentSpouse = prompt("Who is their spouse?");
 
 
 		break;
