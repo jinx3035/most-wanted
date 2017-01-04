@@ -300,22 +300,24 @@ printAllToConsole(data);
 
 function initSearch(data){
 	alert("Hello Joe");
-
 	// get all the information you need to run the search
 	var firstname = prompt("What is the first name?");
 	var lastname = prompt("What is the last name");
-
 	// then pass that info to the respective function.
 	var result = getPersonInfo(firstname, lastname)
-
+		if (result == null){
+			greeting = ("Try another name")
+		}
 	// once the search is done, pass the results to the responder function
 	responder(result);
 }
+
 
 function responder(results){
 	// results may be a list of strings, an object, or a single string.
 	alert(results);
 }
+
 
 function getPersonInfo(firstname, lastname){
 	var result = "This will be the information for whoever you searched for";
@@ -323,9 +325,11 @@ function getPersonInfo(firstname, lastname){
 	return result;
 }
 
+
 function getFamily(){
 	// return an array containing the members of the person's family
 	// the array should contain each person's unmodified object
 }
+
 
 // there will be much more here, and some of the code above will certainly change
