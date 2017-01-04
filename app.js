@@ -45,10 +45,10 @@ function getPerson(firstName, lastName, people){
 }
 
 function mainMenu(person, people){
-	var info = prompt("Do you want to know the persons 'info', the persons 'family', their next of 'kin', their 'descendents', or 'restart', or 'quit'");
-	switch(info){
+	var displayOption = prompt("Do you want to know the persons 'info', 'family', next of 'kin', or 'descendents'? Type the option you want or 'restart' or 'quit'");
+	switch(displayOption){
 		case "info":
-
+			
 			break;
 		case "family":
 
@@ -71,6 +71,30 @@ function searchByAttrs(gender, occupation, height, weight, age, eyeColor, people
 
 }
 function searchByFam(currentspouse, parents, people){
+
+}
+
+function getInfo(){
+
+}
+
+function getFamily(){
+
+}
+
+function getKin(){
+
+}
+
+function getDescendents(){
+
+}
+
+function restart(){
+
+}
+
+function quit(){
 
 }
 /*function responder(results){
