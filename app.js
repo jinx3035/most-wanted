@@ -301,10 +301,11 @@ printAllToConsole(data);
 function initSearch(data){
 	alert("Welcome to our secret government search engine!");
 	// get all the information you need to run the search
-	var firstname = prompt("What is the first name?");
 	var lastname = prompt("What is the last name");
+	var firstname = prompt("What is the first name?");
+	
 	// then pass that info to the respective function.
-	var result = getPersonInfo(firstname, lastname)
+	var result = getPersonInfo(lastname,firstname)
 		if (result == null){
 			greeting = ("Try another name")
 		}
@@ -312,16 +313,19 @@ function initSearch(data){
 	responder(result);
 }
 
+
 function responder(results){
 	// results may be a list of strings, an object, or a single string.
 	alert(results);
 }
 
-function getPersonInfo(firstname, lastname){
+
+function getPersonInfo(lastname,firstname){
 	var result = "This will be the information for whoever you searched for";
 	// return the object of a person
 	return result;
 }
+
 
 function getFamily(){
 	// return an array containing the members of the person's family
