@@ -301,7 +301,7 @@ printAllToConsole(data);
 function initSearch(data){
 	alert("Welcome to our secret government search engine!");
 	// get all the information you need to run the search
-	var lastname = prompt("What is the last name");
+	var lastname = prompt("What is the last name?");
 	var firstname = prompt("And now the first name please?");
 	
 	// then pass that info to the respective function.
