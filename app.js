@@ -40,15 +40,14 @@ function initMostWanted(people){
 
 
 function searchByPerson(firstName, lastName, people){
-	// once the search is done, pass the results to the responder function
-	
+	filter()
 }
 
 function mainMenu(person, people){
 	var displayOption = prompt("Would you like to Restart or Quit?");
 	switch(displayOption){
 		case "person":
-
+			getPerson();
 			break;
 		case "people":
 
@@ -75,18 +74,10 @@ function searchByFam(currentspouse, parents, people){
 }
 
 function getPerson(){
-
+	filter
 }
 
-function getFamily(){
-
-}
-
-function getKin(){
-
-}
-
-function getDescendents(){
+function getpeople(){
 
 }
 
