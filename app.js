@@ -68,13 +68,9 @@ function mainMenu(person, people){
 
 function searchByAttrs(gender, occupation, height, weight, age, eyeColor, people){
 	var sublist = people.filter(function(person){
-		//alert("Gender is: "+person[0].gender+"")
-
-
-
-
-
-	});
+		return person.gender === gender && person.occupation && person.height && person.weight && person.age &&person.eyecolor;
+	 });
+	
 	return sublist;
 }
 
