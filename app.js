@@ -40,7 +40,7 @@ function initMostWanted(people){
 }
 
 function mainMenu(person, people){
-	var displayOption = prompt("Would you like to start over?");
+	var displayOption = prompt("This is the Main Menu.");
 	switch(displayOption){
 		case "name":
 			
@@ -58,11 +58,11 @@ function mainMenu(person, people){
 
 			break;
 		case "restart":
-
+			var restart = fnrestart()
 			break;
 		default:
 		alert("Please enter valid search criteria.");
-		initmainMenu(people)
+		mainMenu(people)
 	}
 	
 }
@@ -84,6 +84,13 @@ function searchByFam(currentspouse, parents, people){
 function namefilter(){
 
 }
+
+function fnrestart(){
+
+}
+
+
+
 /*
 function getPerson(){
 	
