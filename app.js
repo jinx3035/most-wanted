@@ -7,7 +7,6 @@ function initMostWanted(people){
 		case "name":
 			var person = searchByName(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
 			mainMenu(person, people);
-				searchByName(lastName, firstName, people);
 		break;
 		case "attributes":
 			var gender = prompt("What is their gender? ");
