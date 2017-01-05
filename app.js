@@ -42,8 +42,8 @@ function searchByName(lastName, firstName, people){
 	return namefilter;
 }
 
-function mainMenu(person, people){}
-/*	var displayOption = prompt("This is the Main Menu.");
+function mainMenu(person, people){
+	var displayOption = prompt("This is the Main Menu.");
 	switch(displayOption){
 		case "name":
 			namefilter()
@@ -79,4 +79,6 @@ function searchByFam(currentspouse, parents, people){
 
 }
 
-*/
+function namefilter(){
+	display(person)
+}
