@@ -6,9 +6,9 @@ function initMostWanted(people){
 	}while(!(searchType == "name" || searchType == "attributes" || searchType == "family"));
 	switch(searchType){
 		case "name":
-			var listOfPeople = searchByName(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
-			if (listOfPeople.length > 0){
-			mainMenu(listOfPeople[0], people);	
+			var person = searchByName(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
+			if (person.length > 0){
+			mainMenu(person[0], people);	
 		} else {
 			alert("Please enter relavent search criteria.");
 		}
@@ -47,7 +47,9 @@ function initMostWanted(people){
 
 
 function searchByName(lastName, firstName, people){
-	return people.filter(person => person.lastName === lastName && person.firstName === firstName);
+	var person = people.filter(person => person.lastName === lastName && person.firstName === firstName);
+	alert("person: "+person[0].lastName+" "+person[0].firstName+"");
+	return person;
 	
 }
 
@@ -63,6 +65,7 @@ function mainMenu(person, people){
 
 function searchByAttrs(gender, occupation, height, weight, age, eyeColor, people){
 	var sublist = people.filter(function(person){
+		//alert("Gender is: "+person[0].gender+)
 
 
 
@@ -76,6 +79,3 @@ function searchByFam(currentspouse, parents, people){
 
 }
 
-function nameFilter(){
-	display(person)
-}
