@@ -5,8 +5,9 @@ function initMostWanted(people){
 	}while(!(searchType == "name" || searchType == "attributes" || searchType == "family"));
 	switch(searchType){
 		case "name":
-			var person = searchByPerson(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
+			var person = searchByName(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
 			mainMenu(person, people);
+				searchByName(firstName, lastName, people)
 		break;
 		case "attributes":
 			var gender = prompt("What is their gender? ");
@@ -21,7 +22,7 @@ function initMostWanted(people){
 
 			var eyeColor = prompt("What is the eye color?");
 
-			searchByAttrs(gender, occupation, height, weight, age, eyeColor, people);
+				searchByAttrs(gender, occupation, height, weight, age, eyeColor, people);
 		break;
 		case "family":
 			var currentSpouse = prompt("Who is their spouse?");
@@ -30,7 +31,7 @@ function initMostWanted(people){
 
 			
 
-			searchByFam(parents, currentSpouse);
+				searchByFam(parents, currentSpouse);
 		break;
 		default:
 		alert("There was an error processing your request.");
@@ -38,35 +39,40 @@ function initMostWanted(people){
 	}
 }
 
+function mainMenu(person, people){
+	var displayOption = prompt("Would you like to start over?");
+	switch(displayOption){
+		case "name":
+			
+			break;
+		case "attributes":
 
-function searchByPerson(firstName, lastName, people){
+			break;
+		case "family":
+			
+			break;
+		case "nextOfKin":
+
+			break;
+		case "decendents":
+
+			break;
+		case "restart":
+
+			break;
+		default:
+		alert("Please enter valid search criteria.");
+		initmainMenu(people)
+	}
+	
+}
+
+function searchByName(firstName, lastName, people){
 	var namefilter = people.filter(person => person.firstName === firstName && person.lastName === lastName);
 	mainMenu(people);
 	return namefilter;
 }
 
-function mainMenu(person, people){
-	var displayOption = prompt("Would you like to start over?");
-	switch(displayOption){
-		case "person":
-			getPerson();
-			break;
-		case "people":
-
-			break;
-		case "restart":
-			initMostWanted(people)
-			break;
-		case "quit":
-			return;
-			break;
-		default:
-		alert("Please enter valid search criteria.");
-		
-	}
-	
-
-}
 function searchByAttrs(gender, occupation, height, weight, age, eyeColor, people){
 
 }
@@ -75,6 +81,10 @@ function searchByFam(currentspouse, parents, people){
 
 }
 
+function namefilter(){
+
+}
+/*
 function getPerson(){
 	
 }
@@ -102,7 +112,7 @@ function fname(){
 function lname(){
 
 }
-/*function responder(results){
+function responder(results){
 	// results may be a list of strings, an object, or a single string.
 	alert(results);
 
