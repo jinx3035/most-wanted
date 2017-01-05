@@ -1,12 +1,18 @@
 function initMostWanted(people){
-	alert("Welcome to our Super Secret government search engine!");
+	
 	do{
+		alert("Welcome to my Super Secret government search engine!");
 		var searchType = prompt("Do you want to search by name, attributes or family? Enter word 'name', 'attributes' or 'family' here.");
 	}while(!(searchType == "name" || searchType == "attributes" || searchType == "family"));
 	switch(searchType){
 		case "name":
-			var person = searchByName(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
-			mainMenu(person, people);
+			var nameFilter = searchByName(prompt("What is the persons last name?"), prompt("And now the first name please?"), people);
+			if (nameFilter.length > 0){
+			mainMenu(nameFilter, people);	
+		} else {
+			alert("Please enter relavent search criteria.");
+		}
+			
 		break;
 		case "attributes":
 			var gender = prompt("What is their gender? ");
@@ -37,8 +43,8 @@ function initMostWanted(people){
 }
 
 function searchByName(lastName, firstName, people){
-	var namefilter = people.filter(person => person.lastName === lastName && person.firstName === firstName);
-	return namefilter;
+	var nameFilter = people.filter(person => person.lastName === lastName && person.firstName === firstName);
+	return nameFilter;
 }
 
 function mainMenu(person, people){
@@ -51,7 +57,7 @@ function mainMenu(person, people){
 		case "attributes":
 
 			break;
-		case "family":
+		case "immediatefamily":
 			
 			break;
 		case "nextOfKin":
@@ -78,6 +84,6 @@ function searchByFam(currentspouse, parents, people){
 
 }
 
-function namefilter(){
+function nameFilter(){
 	display(person)
 }
