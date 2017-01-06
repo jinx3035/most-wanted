@@ -79,9 +79,9 @@ function mainMenu(person, people){
 	default:
 }
 
-function getPersoninfo(firstName, lastName, age, height, weight, occupation, people){
-	return person.firstName === firstName && person.lastName === lastName && person.age === age && person.height === height && person.weight === weight && person.occupation === ocupation;
-
+function getPersoninfo(person, people){
+	alert("Name is: "+person.firstName+" "+person.lastName+". Birthday is: "+person.dob+". Height is: "+person.height+". Weight is: "+person.weight+". Occupation is: "+person.occupation+".");
+	mainMenu(person.people)
 }
 
 function getFamily(person,people){
