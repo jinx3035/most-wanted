@@ -7,7 +7,7 @@ function initMostWanted(people){
 	switch(searchType){
 		case "name":
 			var person = searchByName(prompt("What is the persons first name?"), prompt("And now the last name please?"), people);
-			if (person.length > 0){
+			if (person){
 			mainMenu(person, people);	
 		} else {
 			alert("Please enter a relavent name.");
@@ -35,7 +35,7 @@ function initMostWanted(people){
 
 function searchByName(firstName, lastName, people){
 	var person= people.filter(person =>person.firstName === firstName && person.lastName === lastName);
-	return person ;
+	return person[0] ;
 }
 
 
@@ -52,7 +52,7 @@ function mainMenu(person, people){
 		alert("Person not found.");
 		initMostWanted(people);
 	}
-	alert("found: "+ person[0].firstName + " " + person[0].lastName);
+	alert("found: "+ person.firstName + " " + person.lastName);
 	var displayInfo = prompt("Would you like to search for persons 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 		case "info":
