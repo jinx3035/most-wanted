@@ -17,15 +17,15 @@ function initMostWanted(people){
 		case "attributes":
 			var gender = (prompt("What is their gender? "),people);
 
-			var occupation = (prompt("What is their occupation?",people);
+			var occupation = (prompt("What is their occupation?"),people);
 			
-			var height = (prompt("What is the height?",people);
+			var height = (prompt("What is the height?"),people);
 
-			var weight = (prompt("What is the weight?",people);
+			var weight = (prompt("What is the weight?"),people);
 
-			var age = (prompt("What is the age?",people);
+			var age = (prompt("What is the age?"),people);
 
-			var eyeColor = (prompt("What is the eye color?",people);
+			var eyeColor = (prompt("What is the eye color?"),people);
 
 				searchByAttributes(gender, occupation, height, weight, age, eyeColor, people);
 		break;
@@ -68,8 +68,9 @@ function mainMenu(person, people){
 
 function searchByAttributes(gender, occupation, height, weight, age, eyeColor, people){
 	var sublist = people.filter(function(person){
-				alert("Gender is: "+person[0].gender+" Their job is: "+person[0].occupation+ "Height: "+person[0].height+ "weight:"+person[0].weight+" Age:"+person[0].age+" Eyecolor:"+person[0].eyecolor+"");
 		return person.gender === gender && person.occupation === occupation && person.height === height && person.weight === weight && person.age === age && person.eyecolor === eyecolor;
+						alert("Gender is: "+person[0].gender+ "Their job is: "+person[0].occupation+ "Height: "+person[0].height+ "weight:"+person[0].weight+ "Age:"+person[0].age+ "Eyecolor:"+person[0].eyecolor+"");
+
 	 });
 	
 	return sublist;
