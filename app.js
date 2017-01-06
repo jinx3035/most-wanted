@@ -10,12 +10,17 @@ function initMostWanted(people){
 			if (person.length > 0){
 			mainMenu(person[0], people);	
 		} else {
-			alert("Please enter relavent search name.");
+			alert("Please enter a relavent name.");
 		}
 			
 		break;
 		case "attributes":
 			var gender = (prompt("What is their gender? "),people);
+				if (gender.length > 0){
+				mainMenu(person[0], people);
+			}else {
+				alert("Please enter relavent attributes.")
+			}
 
 			var occupation = (prompt("What is their occupation?"),people);
 			
