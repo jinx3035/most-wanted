@@ -27,7 +27,7 @@ function initMostWanted(people){
 
 			var eyeColor = prompt("What is the eye color?");
 
-				searchByAttrs(gender, occupation, height, weight, age, eyeColor, people);
+				searchByAttributes(gender, occupation, height, weight, age, eyeColor, people);
 		break;
 		case "family":
 			var currentSpouse = prompt("Who is their spouse?");
@@ -66,9 +66,10 @@ function mainMenu(person, people){
 	
 }
 
-function searchByAttrs(gender, occupation, height, weight, age, eyeColor, people){
+function searchByAttributes(gender, occupation, height, weight, age, eyeColor, people){
 	var sublist = people.filter(function(person){
-		return person.gender === gender && person.occupation && person.height && person.weight && person.age &&person.eyecolor;
+				alert("Gender is: "+person[0].gender+" Their job is: "+person[0].occupation+ "Height: "+person[0].height+ "weight:"+person[0].weight+" Age:"+person[0].age+" Eyecolor:"+person[0].eyecolor+"");
+		return person.gender === gender && person.occupation === occupation && person.height === height && person.weight === weight && person.age === age && person.eyecolor === eyecolor;
 	 });
 	
 	return sublist;
