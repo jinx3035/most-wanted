@@ -72,13 +72,12 @@ function mainMenu(person, people){
 }
 
 function searchByAttributes(gender, occupation, height, weight, age, eyeColor, people){
-	var sublist = people.filter(function(person){
-		return person.gender === gender && person.occupation === occupation && person.height === height && person.weight === weight && person.age === age && person.eyecolor === eyecolor;
+	var sublist = people.filter(person =>{
+		return person.gender === gender && person.occupation === occupation && person.height === height && person.weight === weight && person.age === age && person.eyecolor === eyecolor});
 						alert("Gender is: "+person[0].gender+ "Their job is: "+person[0].occupation+ "Height: "+person[0].height+ "weight:"+person[0].weight+ "Age:"+person[0].age+ "Eyecolor:"+person[0].eyecolor+"");
 
-	 });
-	
-	return sublist;
+		return sublist;
+
 }
 
 function searchByFam(currentspouse, parents, people){
