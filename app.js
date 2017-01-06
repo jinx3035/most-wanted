@@ -15,11 +15,10 @@ function initMostWanted(people){
 			
 		break;
 		case "attributes":
-		do{
-			var sex = searchByAttributes(prompt("What is their gender? "),people);
-			alert("Do you know the persons sex? If not leave blank.");
-			mainmenu(sex[0], people)
-		}while
+		
+			var age = searchByAttributes(prompt("Do you know the persons age? If not then leave blank."),people);
+		
+		
 	
 
 			var occupation = (prompt("What is their occupation?"),people);
@@ -28,19 +27,17 @@ function initMostWanted(people){
 
 			var weight = (prompt("What is the weight?"),people);
 
-			var age = (prompt("What is the age?"),people);
+			var  sex= (prompt("What is the sex?"),people);
 
 			var eyeColor = (prompt("What is the eye color?"),people);
 
-				searchByAttributes(sex, occupation, height, weight, age, eyeColor, people);
+				searchByAttributes(age, height, weight, sex, eyeColor,occupation, people);
 		break;
 		default:
 		alert("There was an error processing your request.");
 		initMostWanted(people);
 	}
 }
-
-
 
 
 
@@ -52,11 +49,45 @@ function searchByName(firstName, lastName, people){
 }
 
 
+function searchByAttributes(age, height, weight, sex, eyeColor,occupation, people){
+	var sublist = people.filter(person =>{
+		return person.age === age && person.height === height && person.weight === weight && person.gender === sex && person.eyecolor === eyecolor && person.occupation === occupation;
 
+			});
+
+
+
+		return sublist;
+}
 
 
 function mainMenu(person, people){
-	alert("This is: "+person[0].firstName+" "+person[0].lastName+" Height:"+person[0].height+" Weight:"+person[0].weight+"")
+	if(!person){
+		alert("Person not found.")
+	}
+	alert(person.firstName)
+
+switch(){
+	case "parents"
+
+break;
+	case "current spouse"
+
+break;
+	case "decendents"
+
+break;
+	case "quit"
+
+break;
+	case "restart"
+
+break;
+}
+
+
+
+
 /* Next of kin
 	decendents
 	parents
@@ -64,14 +95,7 @@ function mainMenu(person, people){
 	
 }
 
-function searchByAttributes(gender, occupation, height, weight, age, eyeColor, people){
-	var sublist = people.filter(person =>{
-		return person.gender === sex});
-			alert(" is: "+person[0].gender+ "Their job is: "+person[0].occupation+ "Height: "+person[0].height+ "weight:"+person[0].weight+ "Age:"+person[0].age+ "Eyecolor:"+person[0].eyecolor+"");
 
-		return sublist;
-
-}
 
 function searchByFam(currentspouse, parents, people){
 
