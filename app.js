@@ -8,7 +8,7 @@ function initMostWanted(people){
 		case "name":
 			var person = searchByName(prompt("What is the persons first name?"), prompt("And now the last name please?"), people);
 			if (person.length > 0){
-			mainMenu(person[0], people);	
+			mainMenu(person, people);	
 		} else {
 			alert("Please enter a relavent name.");
 		}
@@ -20,7 +20,7 @@ function initMostWanted(people){
 			var occupation = (prompt("What is their occupation?"),people);			
 			var height = (prompt("What is the height?"),people);
 			var weight = (prompt("What is the weight?"),people);
-			var  sex= (prompt("What is the sex?"),people);
+			var sex= (prompt("What is the sex?"),people);
 			var eyeColor = (prompt("What is the eye color?"),people);
 				searchByAttributes(age, height, weight, sex, eyeColor,occupation, people);
 		break;
@@ -34,7 +34,8 @@ function initMostWanted(people){
 
 
 function searchByName(firstName, lastName, people){
-	return people.filter(person =>{return person.firstName.toLowerCase() === firstName && person.lastName.toLowerCase() === lastName});
+	var person= people.filter(person =>person.firstName === firstName && person.lastName === lastName);
+	return person ;
 }
 
 
@@ -50,9 +51,9 @@ function mainMenu(person, people){
 	if(!person){
 		alert("Person not found.");
 		initMostWanted(people);
-	}}
-
-	var displayInfo = prompt("found: "+person.firstName+" "+person.lastName+"Would you like to search for persons 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.")
+	}
+	alert("found: "+ person[0].firstName + " " + person[0].lastName);
+	var displayInfo = prompt("Would you like to search for persons 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 		case "info":
 		getPersoninfo(person.people);
@@ -77,7 +78,7 @@ function mainMenu(person, people){
 
 	break;
 	default:
-}
+}}
 
 function getPersoninfo(person, people){
 	alert("Name is: "+person.firstName+" "+person.lastName+". Birthday is: "+person.dob+". Height is: "+person.height+". Weight is: "+person.weight+". Occupation is: "+person.occupation+".");
