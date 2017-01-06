@@ -15,17 +15,17 @@ function initMostWanted(people){
 			
 		break;
 		case "attributes":
-			var gender = prompt("What is their gender? ");
+			var gender = (prompt("What is their gender? "),people);
 
-			var occupation = prompt("What is their occupation?");
+			var occupation = (prompt("What is their occupation?",people);
 			
-			var height = prompt("What is the height?");
+			var height = (prompt("What is the height?",people);
 
-			var weight = prompt("What is the weight?");
+			var weight = (prompt("What is the weight?",people);
 
-			var age = prompt("What is the age?");
+			var age = (prompt("What is the age?",people);
 
-			var eyeColor = prompt("What is the eye color?");
+			var eyeColor = (prompt("What is the eye color?",people);
 
 				searchByAttributes(gender, occupation, height, weight, age, eyeColor, people);
 		break;
