@@ -17,7 +17,7 @@ function initMostWanted(people){
 		case "attributes":
 			var gender = (prompt("What is their gender? "),people);
 				if (gender.length > 0){
-				mainMenu(person[0], people);
+				mainMenu(person, people);
 			}else {
 				alert("Please enter relavent attributes.")
 			}
