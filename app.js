@@ -1,8 +1,8 @@
 function initMostWanted(people){
-	
+
+	alert("Welcome to my Super Secret government search engine!");	
 	do{
-		alert("Welcome to my Super Secret government search engine!");
-		var searchType = prompt("Do you want to search by name, attributes or family? Enter word 'name' or 'attributes' here.");
+		var searchType = prompt("Do you want to search by name or attributes? Enter word 'name' or 'attributes' here.");
 	}while(!(searchType == "name" || searchType == "attributes"));
 	switch(searchType){
 		case "name":
@@ -16,11 +16,8 @@ function initMostWanted(people){
 		break;
 		case "attributes":
 		
-			var age = searchByAttributes(prompt("Do you know the persons age? If not then leave blank."),people);
+			var age = (prompt("Do you know the persons age? If not then leave blank."),people);
 		
-		
-	
-
 			var occupation = (prompt("What is their occupation?"),people);
 			
 			var height = (prompt("What is the height?"),people);
@@ -42,7 +39,7 @@ function initMostWanted(people){
 
 
 function searchByName(firstName, lastName, people){
-	var person = people.filter(person =>{return person.firstName === firstName && person.lastName === lastName});
+	var person = people.filter(person =>{return person.firstName.toLowerCase() === firstName && person.lastName.toLowerCase() === lastName});
 	
 	//prompt("Would you like to see physical attributes?");
 	return person;	
@@ -52,52 +49,47 @@ function searchByName(firstName, lastName, people){
 function searchByAttributes(age, height, weight, sex, eyeColor,occupation, people){
 	var sublist = people.filter(person =>{
 		return person.age === age && person.height === height && person.weight === weight && person.gender === sex && person.eyecolor === eyecolor && person.occupation === occupation;
-
-			});
-
-
-
-		return sublist;
-}
+	return sublist;	
+})};
+	
 
 
 function mainMenu(person, people){
 	if(!person){
-		alert("Person not found.")
-	}
-	alert(person.firstName)
+		alert("Person not found.");
+		initMostWanted(people);
+	}}
 
-switch(){
-	case "parents"
+	var displayInfo = prompt("found: "+person.firstName+" "+person.lastName+"Would you like to search for persons 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.")
+	switch(displayInfo){
+		case "info":
+		getPerson(person.people);
 
-break;
-	case "current spouse"
+	break;
+		case "family":
+		getFamily(person.people);
+	break;
+		case "kin":
+		getKin(person.people);
 
-break;
-	case "decendents"
+	break;
+		case "decendents":
+		getDecendents(person.people);
 
-break;
-	case "quit"
+	break;
+		case "quit":
 
-break;
-	case "restart"
+	break;
+		case "restart":
+		initMostWanted(people);
 
-break;
+	break;
+	default:
 }
+function getPerson(person,people);
 
 
-
-
-/* Next of kin
-	decendents
-	parents
-*/	
-	
-}
-
-
-
-function searchByFam(currentspouse, parents, people){
+function getFamily(currentspouse, parents, people){
 
 }
 
