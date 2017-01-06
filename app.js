@@ -31,43 +31,39 @@ function initMostWanted(people){
 	}
 }
 
-
-
 function searchByName(firstName, lastName, people){
 	var person= people.filter(person =>person.firstName === firstName && person.lastName === lastName);
 	return person[0] ;
 }
 
-
 function searchByAttributes(age, height, weight, sex, eyeColor,occupation, people){
 	var sublist = people.filter(person =>{
-		return person.age === age && person.height === height && person.weight === weight && person.gender === sex && person.eyecolor === eyecolor && person.occupation === occupation;
+	return person.age === age && person.height === height && person.weight === weight && person.gender === sex && person.eyecolor === eyecolor && person.occupation === occupation;
 	return sublist;	
 })};
-	
 
 
 function mainMenu(person, people){
 	if(!person){
-		alert("Person not found.");
+		alert("Criteria not found.");
 		initMostWanted(people);
 	}
 	alert("found: "+ person.firstName + " " + person.lastName);
 	var displayInfo = prompt("Would you like to search for persons 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 		case "info":
-		getPersoninfo(person.people);
+		getPersoninfo(person, people);
 
 	break;
 		case "family":
-		getFamily(person.people);
+		getFamily(person,people);
 	break;
 		case "kin":
-		getKin(person.people);
+		getKin(person,people);
 
 	break;
 		case "decendents":
-		getDecendents(person.people);
+		getDecendents(person,people);
 
 	break;
 		case "quit":
@@ -82,14 +78,18 @@ function mainMenu(person, people){
 
 function getPersoninfo(person, people){
 	alert("Name is: "+person.firstName+" "+person.lastName+". Birthday is: "+person.dob+". Height is: "+person.height+". Weight is: "+person.weight+". Occupation is: "+person.occupation+".");
-	mainMenu(person.people)
+	mainMenu(person[0],people);
 }
 
 function getFamily(person,people){
+	alert("")
 
 }
 
-function getFamily(currentspouse, parents, people){
+function getKin(person, people){
 
 }
 
+function getDecendents(person, people){
+
+}
