@@ -17,20 +17,15 @@ function initMostWanted(people){
 		case "attributes":
 		
 			var age = (prompt("Do you know the persons age? If not then leave blank."),people);
-		
-			var occupation = (prompt("What is their occupation?"),people);
-			
+			var occupation = (prompt("What is their occupation?"),people);			
 			var height = (prompt("What is the height?"),people);
-
 			var weight = (prompt("What is the weight?"),people);
-
 			var  sex= (prompt("What is the sex?"),people);
-
 			var eyeColor = (prompt("What is the eye color?"),people);
-
 				searchByAttributes(age, height, weight, sex, eyeColor,occupation, people);
 		break;
 		default:
+		//<br>?
 		alert("There was an error processing your request.");
 		initMostWanted(people);
 	}
@@ -39,10 +34,7 @@ function initMostWanted(people){
 
 
 function searchByName(firstName, lastName, people){
-	var person = people.filter(person =>{return person.firstName.toLowerCase() === firstName && person.lastName.toLowerCase() === lastName});
-	
-	//prompt("Would you like to see physical attributes?");
-	return person;	
+	return people.filter(person =>{return person.firstName.toLowerCase() === firstName && person.lastName.toLowerCase() === lastName});
 }
 
 
@@ -63,7 +55,7 @@ function mainMenu(person, people){
 	var displayInfo = prompt("found: "+person.firstName+" "+person.lastName+"Would you like to search for persons 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.")
 	switch(displayInfo){
 		case "info":
-		getPerson(person.people);
+		getPersoninfo(person.people);
 
 	break;
 		case "family":
@@ -86,8 +78,15 @@ function mainMenu(person, people){
 	break;
 	default:
 }
-function getPerson(person,people);
 
+function getPersoninfo(firstName, lastName, age, height, weight, occupation, people){
+	return person.firstName === firstName && person.lastName === lastName && person.age === age && person.height === height && person.weight === weight && person.occupation === ocupation;
+
+}
+
+function getFamily(person,people){
+
+}
 
 function getFamily(currentspouse, parents, people){
 
