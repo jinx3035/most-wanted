@@ -37,10 +37,19 @@ function searchByName(firstName, lastName, people){
 }
 
 function searchByAttributes(age, height, weight, sex, eyeColor,occupation, people){
+	alert("Please enter Attributes as prompted. If unknown leave blank.");
 	var sublist = people.filter(person =>{
-	return person.age === age && person.height === height && person.weight === weight && person.gender === sex && person.eyecolor === eyecolor && person.occupation === occupation;
-	return sublist;	
-})};
+		return person.age === age;
+
+
+
+
+
+
+
+	};
+	return sublist;
+)};
 
 
 function mainMenu(person, people){
@@ -77,12 +86,13 @@ function mainMenu(person, people){
 }}
 
 function getPersoninfo(person, people){
-	alert("Name is: "+person.firstName+" "+person.lastName+". Birthday is: "+person.dob+". Height is: "+person.height+". Weight is: "+person.weight+". Occupation is: "+person.occupation+".");
+	alert("Name is: "+person.firstName+" "+person.lastName+"\nBirthday is: "+person.dob+"\nHeight is: "+person.height+"\nWeight is: "+person.weight+"\nOccupation is: "+person.occupation+".");
 	mainMenu(person[0],people);
 }
 
 function getFamily(person,people){
-	alert(" Parents are:"+people.parents+ " Current spouse is:"+people.currentSpouse);
+	prompt("Would you like to search for parents or current spouse?");
+
 		mainMenu(person,people);	
 }
 
@@ -95,14 +105,14 @@ function getDecendents(person, people){
 }
 function getParents(persom,people){
 	return people.filter(function(p){
-		if(p.id == person.parents[0] && p.id || p.id == person.parents[1].id){
+		if((p.id == person.parents[0] && p.id) || p.id == person.parents[1].id){
 			return true;
-			else{
+			}else{
 				return false;
 			}
 		}
 	}
-}
+
 
 
 
