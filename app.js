@@ -27,7 +27,7 @@ function initMostWanted(people){
 			var filteredList = searchByAttributes(height, weight, age, sex, eyeColor,occupation, people);
 
 			// allow the user to select a person from the subset
-			var selectedPerson = pickPerson(filteredList, people);
+			var selectedPerson = pickPerson(filteredList);
 
 			// send the selected person to the main menu where the user can view information about them
 			mainMenu(selectedPerson, people);
@@ -46,14 +46,27 @@ function searchByName(firstName, lastName, people){
 
 function searchByAttributes(height, weight, age, sex, eyeColor,occupation, people){
 	return people.filter(function(person){
-		// if height exists and height is not a match, return false
-
-		// if weight exists and weight is not a match, return false
-
-		// if age exists and is not a match, return false
-
+		if (height && (height != person.height)){
+			return false;
+		} if (weight && (weight != person.weight)){
+			return false;
+		} if (age && (age != person.dob)){
+			return false;
+		} if (sex && (sex != person.gender)){
+			return false;
+		} if (eyeColor && (eyeColor != person.eyeColor)){
+			return false;
+		} if (occupation && (occupation != person.occupation)){
+			return false;
+		}
 		return true;
 	});
+}
+
+function pickPerson(filteredList){
+	for (var i=0; i < filteredList.length; i++){
+		alert(" Height: "+filteredList[i].height+" Weight: " +filteredList[i].weight+ "\ndob: "+filteredList[i].dob+" Sex: "+filteredList[i].gender+" Eye color: "+filteredList[i].eyeColor+"\nOccupation "+filteredList[i].occupation);
+	} return filteredList;
 }
 
 function mainMenu(person, people){
@@ -61,7 +74,7 @@ function mainMenu(person, people){
 		alert("Criteria not found.");
 		initMostWanted(people);
 	}
-*/	var displayInfo = prompt("found: "+ person.firstName + " " + person.lastName+" Would you like to search for their 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.");
+*/	var displayInfo = prompt("found: "+person.firstName+ " " +person.lastName+" Would you like to search for their 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 		case "info":
 		getPersoninfo(person, people);
@@ -95,13 +108,11 @@ function getFamily(person,people){
 		mainMenu(person,people);	
 }
 
-function getKin(person, people){
-
-}
 
 function getDecendents(person, people){
 
 }
+/*
 function getParents(person,people){
 	return people.filter(function(p){
 		if((p.id == person.parents[0] && p.id) || p.id == person.parents[1].id){
@@ -110,7 +121,7 @@ function getParents(person,people){
 				return false;
 			}
 })};
-	
+*/	
 
 
 
