@@ -16,13 +16,21 @@ function initMostWanted(people){
 		break;
 		case "attributes":
 		
-			var age = (prompt("Do you know the persons age? If not then leave blank."),people);
-			var occupation = (prompt("What is their occupation?"),people);			
-			var height = (prompt("What is the height?"),people);
-			var weight = (prompt("What is the weight?"),people);
-			var sex= (prompt("What is the sex?"),people);
-			var eyeColor = (prompt("What is the eye color?"),people);
-				searchByAttributes(age, height, weight, sex, eyeColor,occupation, people);
+			var height = prompt("What is the height? If not then leave blank.");
+			var weight = prompt("What is the weight? If not then leave blank.");
+			var age = prompt("Do you know the persons age? If not then leave blank.");
+			var sex= prompt("What is the sex? If not then leave blank.");
+			var eyeColor = prompt("What is the eye color? If not then leave blank.");
+			var occupation = prompt("What is their occupation? If not then leave blank.");
+
+			// find a subset from your list of people
+			var filteredList = searchByAttributes(height, weight, age, sex, eyeColor,occupation, people);
+
+			// allow the user to select a person from the subset
+			var selectedPerson = pickPerson(filteredList, people);
+
+			// send the selected person to the main menu where the user can view information about them
+			mainMenu(selectedPerson, people);
 		break;
 		default:
 		//<br>?
@@ -36,28 +44,24 @@ function searchByName(firstName, lastName, people){
 	return person[0];
 }
 
-function searchByAttributes(age, height, weight, sex, eyeColor,occupation, people){
-	alert("Please enter Attributes as prompted. If unknown leave blank.");
-	var sublist = people.filter(person =>{
-		return person.age === age;
+function searchByAttributes(height, weight, age, sex, eyeColor,occupation, people){
+	return people.filter(function(person){
+		// if height exists and height is not a match, return false
 
+		// if weight exists and weight is not a match, return false
 
+		// if age exists and is not a match, return false
 
-
-
-
-
+		return true;
 	});
-	return sublist;
-};
-
+}
 
 function mainMenu(person, people){
-	if(!person){
+/*	if(!person){
 		alert("Criteria not found.");
 		initMostWanted(people);
 	}
-	var displayInfo = prompt("found: "+ person.firstName + " " + person.lastName+"Would you like to search for their 'info', 'immediate family' or 'decendents'? Otherwise type 'quit' or 'restart'.");
+*/	var displayInfo = prompt("found: "+ person.firstName + " " + person.lastName+" Would you like to search for their 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 		case "info":
 		getPersoninfo(person, people);
@@ -98,7 +102,7 @@ function getKin(person, people){
 function getDecendents(person, people){
 
 }
-/*function getParents(persom,people){
+function getParents(person,people){
 	return people.filter(function(p){
 		if((p.id == person.parents[0] && p.id) || p.id == person.parents[1].id){
 			return true;
@@ -106,7 +110,9 @@ function getDecendents(person, people){
 				return false;
 			}
 })};
-*/	
+	
+
+
 
 
 
