@@ -33,7 +33,7 @@ function initMostWanted(people){
 
 function searchByName(firstName, lastName, people){
 	var person= people.filter(person =>person.firstName === firstName && person.lastName === lastName);
-	return person[0] ;
+	return person[0];
 }
 
 function searchByAttributes(age, height, weight, sex, eyeColor,occupation, people){
@@ -49,7 +49,7 @@ function mainMenu(person, people){
 		initMostWanted(people);
 	}
 	alert("found: "+ person.firstName + " " + person.lastName);
-	var displayInfo = prompt("Would you like to search for persons 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.");
+	var displayInfo = prompt("Would you like to search for persons 'info', 'immediate family' or 'decendents'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 		case "info":
 		getPersoninfo(person, people);
@@ -82,8 +82,8 @@ function getPersoninfo(person, people){
 }
 
 function getFamily(person,people){
-	alert("")
-
+	alert(" Parents are:"+people.parents+ " Current spouse is:"+people.currentSpouse);
+		mainMenu(person,people);	
 }
 
 function getKin(person, people){
@@ -93,3 +93,20 @@ function getKin(person, people){
 function getDecendents(person, people){
 
 }
+function getParents(persom,people){
+	return people.filter(function(p){
+		if(p.id == person.parents[0] && p.id || p.id == person.parents[1].id){
+			return true;
+			else{
+				return false;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
