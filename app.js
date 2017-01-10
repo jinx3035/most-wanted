@@ -70,7 +70,7 @@ function pickPerson(filteredList){
 		}
 		// else {
 		// 		message += (i +"Found one match: "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");
-		// }else if (filteredList[i].length = 1){
+		// }elsep (filteredList[i].length = 1){
 		// 		message += (i +"Found one match: "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");				
 		// }
 		//}
@@ -89,15 +89,20 @@ function mainMenu(person, people){
 		alert("Criteria not found.");
 		initMostWanted(people);
 	}
-*/	var displayInfo = prompt("Found: "+person.firstName+ " " +person.lastName+" Would you like to search for their 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.");
+*/	var displayInfo = prompt("Would you like to search for: "+person.firstName+ " " +person.lastName+"'s 'info', 'family', 'next of kin' or 'decendents'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 		case "info":
 		getPersoninfo(person, people);
+
 	break;
 		case "family":
 		getFamily(person,people);
-	break;
 
+	break;
+		case "nextOfKin":
+		getDecendents(person,people);
+
+	break;
 		case "decendents":
 		getDecendents(person,people);
 
@@ -117,10 +122,14 @@ function getPersoninfo(person, people){
 	mainMenu(person,people);
 }
 
-function getFamily(person,people){
+function getFamily(person, people){
 	prompt("Would you like to search for parents or current spouse?");
 
 		mainMenu(person,people);	
+}
+
+function getNextOfKin(person, people){
+
 }
 
 
