@@ -122,18 +122,21 @@ function getFamily(person, people){
 	var searchParents=prompt("Would you like to search for parents or current spouse?");
 		return [searchParents];
 
-	var parents=function getParents(person,people){
+	var parents=function getParent(parents, people){
 	return people.filter(function(person){
-		if((person.id == person.parents[0] && person.id) || person.id == person.parents[1].id){
+		//I don't like this if statement
+		if((person.id == person.parents[0] && parents.id) || person.id == person.parents[1].id){
 			return true;
 		} else{
+			//something else here?
 				return false;
 			}
 		return parents;
+			alert("Parent(s):"+person.parents[0]+" "+person.parents[1]);
+
 })};
 
-		alert("Parent(s):"+person.parents[0]+" "+person.parents[1]);
-		mainMenu(person,people,searchParents);	
+		mainMenu(parents.id,people,searchParents);	
 }
 
 function getNextOfKin(person, people){
