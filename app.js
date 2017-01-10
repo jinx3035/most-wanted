@@ -64,10 +64,17 @@ function searchByAttributes(height, weight, age, sex, eyeColor,occupation, peopl
 }
 
 function pickPerson(filteredList){
-	for (var i=0; i < filteredList.length; i++){
-		var ()
+	if(filteredList.length > 1){
+		var message=""; 
+		for (var i=0; i < filteredList.length; i++){
+			message += (i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);			
+		}
 	}
-		alert(i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName+"");
+			else {
+				message = (i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);
+			}
+	
+		alert(message);
 
 	var chosenPerson = prompt("Type the number of the person you would like to know more about?");
 
