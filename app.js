@@ -126,11 +126,11 @@ do{
 		case "parents":
 			return people.filter(function(person){
 				
-				if((person == person.parents[0] && parents.id) || person.id == person.parents[1].id){
+				if(person.parents.includes(parents[0]) || person.parents.includes(parents[1])){
 				//if((people.parents == person.parents[0] && person.parents[1]) || people.parents == person.parents[1].id){
 					return true;
 				} else{
-					alert("person has no parents");
+					return false;
 					}
 			});	
 	break;
@@ -140,8 +140,7 @@ do{
 	break;
 	default:
 
-
-	mainMenu(parents.id,people,searchParents);		
+	mainMenu(person.parents,people,searchParents);		
 }}
 
 
