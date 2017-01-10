@@ -17,12 +17,12 @@ function initMostWanted(people){
 		break;
 		case "attributes":
 		
-			var height = prompt("What is the height? If not then leave blank.".toLowerCase());
-			var weight = prompt("What is the weight? If not then leave blank.".toLowerCase());
-			var age = prompt("Do you know the persons age? If not then leave blank.".toLowerCase());
-			var sex= prompt("What is the sex? If not then leave blank.".toLowerCase());
-			var eyeColor = prompt("What is the eye color? If not then leave blank.".toLowerCase());
-			var occupation = prompt("What is their occupation? If not then leave blank.".toLowerCase());
+			var height = prompt("What is the height? If not then leave blank.");
+			var weight = prompt("What is the weight? If not then leave blank.");
+			var age = prompt("Do you know the persons age? If not then leave blank.");
+			var sex= prompt("What is the sex? If not then leave blank.");
+			var eyeColor = prompt("What is the eye color? If not then leave blank.");
+			var occupation = prompt("What is their occupation? If not then leave blank.");
 
 			// find a subset from your list of people
 			var filteredList = searchByAttributes(height, weight, age, sex, eyeColor,occupation, people);
@@ -67,6 +67,10 @@ function searchByAttributes(height, weight, age, sex, eyeColor,occupation,people
 }
 
 function pickPerson(filteredList){
+ 		var message=""; 
+ 		for (var i=0; i < filteredList.length; i++){
+ 			message += (i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);			
+ 		}
 	alert(message);
 	var chosenPerson = prompt("Type the number of the person you would like to know more about?");
 	 return filteredList[chosenPerson];
@@ -91,8 +95,6 @@ function mainMenu(person, people){
 	break;
 		case "family":
 		getFamily(person.parents,people);
-		alert("Parent(s):"+person.parents[0]+" "+person.parents[1]);
-
 
 	break;
 		case "nextOfKin":
@@ -131,6 +133,8 @@ do{
 					return true;
 				} else{
 					return false;
+					alert("Parent(s):"+person.parents[0]+" "+person.parents[1]);
+
 					}
 			});	
 	break;
