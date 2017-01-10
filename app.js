@@ -33,7 +33,6 @@ function initMostWanted(people){
 			mainMenu(selectedPerson, people);
 		break;
 		default:
-		//<br>?
 		alert("There was an error processing your request.");
 		initMostWanted(people);
 	}
@@ -44,7 +43,7 @@ function searchByName(firstName, lastName, people){
 	return person[0];
 }
 
-function searchByAttributes(height, weight, age, sex, eyeColor,occupation, people){
+function searchByAttributes(height, weight, age, sex, eyeColor,occupation,people){
 	return people.filter(function(person){
 		if (height && (height != person.height)){
 			return false;
@@ -67,17 +66,15 @@ function pickPerson(filteredList){
 	if(filteredList.length > 1){
 		var message=""; 
 		for (var i=0; i < filteredList.length; i++){
-			message += (i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);			
+			message += (i +": "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");			
 		}
-	}
-			else {
-				message = (i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);
+	}		else {
+			message = (i +": "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");
 			}
-	
-		alert(message);
+
+	alert(message);
 
 	var chosenPerson = prompt("Type the number of the person you would like to know more about?");
-
 	 return filteredList[chosenPerson];
 }
 
@@ -86,7 +83,7 @@ function mainMenu(person, people){
 		alert("Criteria not found.");
 		initMostWanted(people);
 	}
-*/	var displayInfo = prompt("found: "+person.firstName+ " " +person.lastName+" Would you like to search for their 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.");
+*/	var displayInfo = prompt("Found: "+person.firstName+ " " +person.lastName+" Would you like to search for their 'info', 'family' or 'decendents'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 		case "info":
 		getPersoninfo(person, people);
