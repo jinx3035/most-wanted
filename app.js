@@ -11,18 +11,18 @@ function initMostWanted(people){
 			mainMenu(person, people);	
 		} else {
 			alert("Please enter a relavent name.");
-			initMostWanted(people);
+			mainMenu(person, people);
 		}
 			
 		break;
 		case "attributes":
 		
-			var height = prompt("What is the height? If not then leave blank.");
-			var weight = prompt("What is the weight? If not then leave blank.");
-			var age = prompt("Do you know the persons age? If not then leave blank.");
-			var sex= prompt("What is the sex? If not then leave blank.");
-			var eyeColor = prompt("What is the eye color? If not then leave blank.");
-			var occupation = prompt("What is their occupation? If not then leave blank.");
+			var height = prompt("What is the height? If not then leave blank.".toLowerCase());
+			var weight = prompt("What is the weight? If not then leave blank.".toLowerCase());
+			var age = prompt("Do you know the persons age? If not then leave blank.".toLowerCase());
+			var sex= prompt("What is the sex? If not then leave blank.".toLowerCase());
+			var eyeColor = prompt("What is the eye color? If not then leave blank.".toLowerCase());
+			var occupation = prompt("What is their occupation? If not then leave blank.".toLowerCase());
 
 			// find a subset from your list of people
 			var filteredList = searchByAttributes(height, weight, age, sex, eyeColor,occupation, people);
@@ -44,6 +44,9 @@ function searchByName(firstName, lastName, people){
 	return person[0];
 }
 
+
+
+
 function searchByAttributes(height, weight, age, sex, eyeColor,occupation,people){
 	return people.filter(function(person){
 		if (height && (height != person.height)){
@@ -64,22 +67,16 @@ function searchByAttributes(height, weight, age, sex, eyeColor,occupation,people
 }
 
 function pickPerson(filteredList){
-	//if(filteredList.length > 1){
-		var message=""; 
-		for (var i=0; i < filteredList.length; i++){
-			message += (i +": "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");
-		}
-		// else {
-		// 		message += (i +"Found one match: "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");
-		// }elsep (filteredList[i].length = 1){
-		// 		message += (i +"Found one match: "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");				
-		// }
-		//}
 	alert(message);
-
 	var chosenPerson = prompt("Type the number of the person you would like to know more about?");
 	 return filteredList[chosenPerson];
 }
+
+
+
+
+
+
 
 function mainMenu(person, people){
 /*	if(!person){
@@ -93,7 +90,9 @@ function mainMenu(person, people){
 
 	break;
 		case "family":
-		getFamily(person,people);
+		getFamily(person.parents,people);
+		alert("Parent(s):"+person.parents[0]+" "+person.parents[1]);
+
 
 	break;
 		case "nextOfKin":
@@ -120,24 +119,31 @@ function getPersoninfo(person, people){
 }
 
 function getFamily(parents, people){
-	var searchParents=prompt("Would you like to search for parents or current spouse?");
-		return [searchParents];
+do{
+		var searchParents = prompt("Would you like to search for parents or current spouse?");
+	}while(!(searchParents == "parents" || searchType == "current spouse"));
+	switch(searchParents){
+		case "parents":
+			return people.filter(function(person){
+				
+				if((person == person.parents[0] && parents.id) || person.id == person.parents[1].id){
+				//if((people.parents == person.parents[0] && person.parents[1]) || people.parents == person.parents[1].id){
+					return true;
+				} else{
+					alert("person has no parents");
+					}
+			});	
+	break;
+		case "current spouse":
+		
 
-	function getParent(parents, people){
-	return people.filter(function(person){
-		//I don't like this if statement
-		var parents="";
-		if((person.id == person.parents[0] && parents.id) || person.id == person.parents[1].id){
-			return true;
-		} else{
-				return false;
-			}
-			alert("Parent(s):"+person.parents[0]+" "+person.parents[1]);
+	break;
+	default:
 
-})};
 
-		mainMenu(parents.id,people,searchParents);	
-}
+	mainMenu(parents.id,people,searchParents);		
+}}
+
 
 function getNextOfKin(person, people){
 
