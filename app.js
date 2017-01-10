@@ -63,14 +63,20 @@ function searchByAttributes(height, weight, age, sex, eyeColor,occupation,people
 }
 
 function pickPerson(filteredList){
-	if(filteredList.length > 1){
+	//if(filteredList.length > 1){
 		var message=""; 
 		for (var i=0; i < filteredList.length; i++){
-			message += (i +": "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");			
+			message += (i +": "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");
 		}
-	}		else {
-			message = (i +": "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");
-			}
+		// else {
+		// 		message += (i +"Found one match: "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");
+		// }else if (filteredList[i].length = 1){
+		// 		message += (i +"Found one match: "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");				
+		// }
+		//}
+	
+
+
 
 	alert(message);
 
