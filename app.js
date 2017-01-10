@@ -65,8 +65,12 @@ function searchByAttributes(height, weight, age, sex, eyeColor,occupation, peopl
 
 function pickPerson(filteredList){
 	for (var i=0; i < filteredList.length; i++){
-		alert(" Height: "+filteredList[i].height+" Weight: " +filteredList[i].weight+ "\ndob: "+filteredList[i].dob+" Sex: "+filteredList[i].gender+" Eye color: "+filteredList[i].eyeColor+"\nOccupation "+filteredList[i].occupation);
-	} return filteredList;
+		alert(" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName+"Height: "+filteredList[i].height+" Weight: " +filteredList[i].weight+ "\ndob: "+filteredList[i].dob+" Sex: "+filteredList[i].gender+" Eye color: "+filteredList[i].eyeColor+"\nOccupation "+filteredList[i].occupation);
+
+	}
+	var chosenPerson = prompt("Which person?");
+
+	 return filteredList[chosenPerson];
 }
 
 function mainMenu(person, people){
