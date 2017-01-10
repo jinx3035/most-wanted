@@ -11,6 +11,7 @@ function initMostWanted(people){
 			mainMenu(person, people);	
 		} else {
 			alert("Please enter a relavent name.");
+			initMostWanted(people);
 		}
 			
 		break;
@@ -118,20 +119,19 @@ function getPersoninfo(person, people){
 	mainMenu(person,people);
 }
 
-function getFamily(person, people){
+function getFamily(parents, people){
 	var searchParents=prompt("Would you like to search for parents or current spouse?");
 		return [searchParents];
 
-	var parents=function getParent(parents, people){
+	function getParent(parents, people){
 	return people.filter(function(person){
 		//I don't like this if statement
+		var parents="";
 		if((person.id == person.parents[0] && parents.id) || person.id == person.parents[1].id){
 			return true;
 		} else{
-			//something else here?
 				return false;
 			}
-		return parents;
 			alert("Parent(s):"+person.parents[0]+" "+person.parents[1]);
 
 })};
