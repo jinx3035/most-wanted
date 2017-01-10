@@ -74,10 +74,6 @@ function pickPerson(filteredList){
 		// 		message += (i +"Found one match: "+filteredList[i].firstName+ " " +filteredList[i].lastName+"  ");				
 		// }
 		//}
-	
-
-
-
 	alert(message);
 
 	var chosenPerson = prompt("Type the number of the person you would like to know more about?");
@@ -100,7 +96,7 @@ function mainMenu(person, people){
 
 	break;
 		case "nextOfKin":
-		getDecendents(person,people);
+		getNextOfKin(person,people);
 
 	break;
 		case "decendents":
@@ -123,9 +119,21 @@ function getPersoninfo(person, people){
 }
 
 function getFamily(person, people){
-	prompt("Would you like to search for parents or current spouse?");
+	var searchParents=prompt("Would you like to search for parents or current spouse?");
+		return [searchParents];
 
-		mainMenu(person,people);	
+	var parents=function getParents(person,people){
+	return people.filter(function(person){
+		if((person.id == person.parents[0] && person.id) || person.id == person.parents[1].id){
+			return true;
+		} else{
+				return false;
+			}
+		return parents;
+})};
+
+		alert("Parent(s):"+person.parents[0]+" "+person.parents[1]);
+		mainMenu(person,people,searchParents);	
 }
 
 function getNextOfKin(person, people){
@@ -136,16 +144,7 @@ function getNextOfKin(person, people){
 function getDecendents(person, people){
 
 }
-/*
-function getParents(person,people){
-	return people.filter(function(p){
-		if((p.id == person.parents[0] && p.id) || p.id == person.parents[1].id){
-			return true;
-		} else{
-				return false;
-			}
-})};
-*/	
+	
 
 
 
