@@ -41,7 +41,7 @@ function initMostWanted(people){
 
 function searchByName(firstName, lastName, people){
 	var person= people.filter(person =>person.firstName === firstName && person.lastName === lastName);
-	return person[0];
+	return person;
 }
 
 function searchByAttributes(height, weight, age, sex, eyeColor,occupation,people){
@@ -85,10 +85,9 @@ function mainMenu(person, people){
 	break;
 		case "family":
 		var filteredParents= getFamily(person.parents,people);
-		var selectedParents= showParents(filteredParents);
 
-		alert("Parent(s):"+person.parents[0]+" "+person.parents[1]);
-
+		alert("Parents: "+filteredParents);
+		mainMenu(person, people);
 	break;
 		case "nextOfKin":
 		getNextOfKin(person,people);
@@ -115,19 +114,11 @@ function getPersoninfo(person, people){
 
 function getFamily(parents, people){
 do{
-		var searchParents = prompt("Would you like to search for parents or current spouse?");
-	}while(!searchParents == "parents" || searchType == "current spouse");
-	switch(searchParents){
+		var searchFamily = prompt("Would you like to search for parents or current spouse?");
+	}while(!searchFamily == "parents" || searchFamily == "current spouse");
+	switch(searchFamily){
 		case "parents":
-
-			return people.filter(function(person){
-				
-				if(person.parents.includes(parents[0]) || person.parents.includes(parents[1])){
-					return true;
-				} else{
-					return false;
-					}
-			});
+			showParents(parents, people);
 	break;
 		case "current spouse":
 		
@@ -137,8 +128,18 @@ do{
 	mainMenu(person.parents,people,searchParents);		
 }}
 
-function showParents(filteredParents){
-
+function showParents(parents, people){
+	people.filter(function(person){
+				if(person.id.includes(parents[0]) || person.id.includes(parents[1])){
+					if(!parents[1]){
+						return "Parent(s):"+person.parents[0].firstName+" "+person.parents[0].lastName;
+					}else if(parents[0]){
+					return 	"Parent(s):"+person.parents[0].firstName+" "+person.parents[0].lastName+" and "+person.parents[1].firstName+" "+person.parents[1].lastName;
+					}
+				} else{
+					return "None"
+					}
+			});
 }
 
 
