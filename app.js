@@ -119,8 +119,8 @@ do{
 	switch(searchFamily){
 		case "parents":
 		var filteredParents= searchParents (person.parents,people);
-		var selectedParents= showParents(filteredParents);
-		mainMenu(selectedParents,people);
+		showParents(filteredParents);
+		mainMenu(person,people);
 	break;
 		case "current spouse":
 		
