@@ -26,7 +26,7 @@ function initMostWanted(people){
 			var occupation = prompt("What is their occupation? If not then leave blank.");
 
 			// find a subset from your list of people
-			var filteredList = searchByAttributes(height, weight, age, sex, eyeColor,occupation, people);
+			var filteredList = searchByAttributes(height, weight, age, gender, eyeColor,occupation, people);
 
 			// allow the user to select a person from the subset
 			var selectedPerson = pickPerson(filteredList);
@@ -47,7 +47,7 @@ function searchByName(firstName, lastName, people){
 	return person;
 }
 
-function searchByAttributes(height, weight, age, sex, eyeColor,occupation,people){
+function searchByAttributes(height, weight, age, gender, eyeColor,occupation,people){
 	return people.filter(function(person){
 		if (height && (height != person.height)){
 			return false;
@@ -55,7 +55,7 @@ function searchByAttributes(height, weight, age, sex, eyeColor,occupation,people
 			return false;
 		} if (age && (age != person.dob)){
 			return false;
-		} if (sex && (sex != person.gender)){
+		} if (gender && (sex != person.gender)){
 			return false;
 		} if (eyeColor && (eyeColor != person.eyeColor)){
 			return false;
@@ -115,10 +115,10 @@ function getPersonInfo(person, people){
 function getFamily(person, people){
 do{
 		var searchFamily = prompt("Would you like to search for parents or current spouse?");
-	}while(!searchFamily == "parents" || searchFamily == "current spouse");
+	}while(!(searchFamily == "parents" || searchFamily == "current spouse"));
 	switch(searchFamily){
 		case "parents":
-		var filteredParents= searchParents (person.parents,people);
+		var filteredParents= searchForParents(person.parents,people);
 		showParents(filteredParents);
 		mainMenu(person,people);
 	break;
@@ -129,15 +129,7 @@ do{
 	default:
 }}
 
-function showParents(filteredParents,people){
-	var message=""; 
-	for (var i=0; i < filteredParents.length; i++){
-		message += (" Parents are: "+filteredParents[i].parents );			
-	}
-	return message;
-}
-
-function searchParents(parents, people){
+function searchForParents(parents, people){
 	return people.filter(function(person){
 		if(person.parents.includes(parents[0]) || person.parents.includes(parents[1])){
 			if(person.parents[0] || person.parents[1]){
@@ -148,6 +140,13 @@ function searchParents(parents, people){
 				} 
 	})};
 
+function showParents(filteredParents,people){
+	 		var message=""; 
+ 		for (var i=0; i < filteredParents.length; i++){
+ 			message += (" Parents are: "+filteredParents[i].parents);			
+ 		}
+	return message;
+}
 
 
 
