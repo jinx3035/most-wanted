@@ -129,12 +129,12 @@ do{
 	default:
 }}
 
-function showParents(filteredParents){
-	 		var message=""; 
- 		for (var i=0; i < filteredParents.length; i++){
- 			message += (" Parents are: "+filteredParents[i].parents );			
- 		}
-	alert(message);
+function showParents(filteredParents,people){
+	var message=""; 
+	for (var i=0; i < filteredParents.length; i++){
+		message += (" Parents are: "+filteredParents[i].parents );			
+	}
+	return message;
 }
 
 function searchParents(parents, people){
