@@ -8,7 +8,7 @@ function initMostWanted(people){
 		case "name":
 			var person = searchByName(prompt("What is the persons first name?"), prompt("And now the last name please?"), people);
 			//This should be different, alert below does not work
-			if (person.length > 0){
+			if (person){
 			mainMenu(person[0], people);	
 		} else {
 			alert("Please enter a relavent name.");
@@ -78,7 +78,7 @@ function pickPerson(filteredList){
 
 
 
-function mainMenu(person, people){
+function mainMenu(Person, people){
 
 	var displayInfo = prompt("Would you like to search for: "+person.firstName+ " " +person.lastName+"'s 'info', 'family', 'next of kin' or 'decendents'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
@@ -108,7 +108,7 @@ function mainMenu(person, people){
 }}
 
 function getPersoninfo(person, people){
-	alert("Name is: "+person.firstName+" "+person.lastName+"\nGender is "+person.gender+"Birthday is: "+person.dob+"\nHeight is: "+person.height+"\nWeight is: "+person.weight+"\nOccupation is: "+person.occupation+".");
+	alert("Name is: "+person.firstName+" "+person.lastName+"\nGender is "+person.gender+"\nBirthday is: "+person.dob+"\nHeight is: "+person.height+"\nWeight is: "+person.weight+"\nOccupation is: "+person.occupation+".");
 	mainMenu(person,people);
 }
 
@@ -127,7 +127,6 @@ do{
 
 	break;
 	default:
-	mainMenu(person.parents,people,searchParents);		
 }}
 
 function showParents(filteredParents){
@@ -144,7 +143,7 @@ function searchParents(parents, people){
 			if(person.parents[0] || person.parents[1]){
 				return true;
 			}else if(!person.parents){
-			return false;
+			return alert("nope");
 			}
 				} 
 	})};
