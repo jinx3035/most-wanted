@@ -78,12 +78,12 @@ function pickPerson(filteredList){
 
 
 
-function mainMenu(Person, people){
+function mainMenu(person, people){
 
 	var displayInfo = prompt("Would you like to search for: "+person.firstName+ " " +person.lastName+"'s 'info', 'family', 'next of kin' or 'decendents'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 		case "info":
-		getPersoninfo(person, people);
+		getPersonInfo(person, people);
 
 	break;
 		case "family":
@@ -107,7 +107,7 @@ function mainMenu(Person, people){
 	default:
 }}
 
-function getPersoninfo(person, people){
+function getPersonInfo(person, people){
 	alert("Name is: "+person.firstName+" "+person.lastName+"\nGender is "+person.gender+"\nBirthday is: "+person.dob+"\nHeight is: "+person.height+"\nWeight is: "+person.weight+"\nOccupation is: "+person.occupation+".");
 	mainMenu(person,people);
 }
