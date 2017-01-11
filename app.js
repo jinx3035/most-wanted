@@ -7,6 +7,7 @@ function initMostWanted(people){
 	switch(searchType){
 		case "name":
 			var person = searchByName(prompt("What is the persons first name?"), prompt("And now the last name please?"), people);
+			//This should be different, alert below does not work
 			if (person.length > 0){
 			mainMenu(person[0], people);	
 		} else {
@@ -86,10 +87,7 @@ function mainMenu(person, people){
 
 	break;
 		case "family":
-		var filteredParents= getFamily(person.parents,people);
-		
-		alert("Parents: "+filteredParents);
-		mainMenu(person, people);
+		getFamily(person,people);
 	break;
 		case "nextOfKin":
 		getNextOfKin(person,people);
@@ -110,17 +108,19 @@ function mainMenu(person, people){
 }}
 
 function getPersoninfo(person, people){
-	alert("Name is: "+person.firstName+" "+person.lastName+"\nBirthday is: "+person.dob+"\nHeight is: "+person.height+"\nWeight is: "+person.weight+"\nOccupation is: "+person.occupation+".");
+	alert("Name is: "+person.firstName+" "+person.lastName+"\nGender is "+person.gender+"Birthday is: "+person.dob+"\nHeight is: "+person.height+"\nWeight is: "+person.weight+"\nOccupation is: "+person.occupation+".");
 	mainMenu(person,people);
 }
 
-function getFamily(parents, people){
+function getFamily(person, people){
 do{
 		var searchFamily = prompt("Would you like to search for parents or current spouse?");
 	}while(!searchFamily == "parents" || searchFamily == "current spouse");
 	switch(searchFamily){
 		case "parents":
-			showParents(parents, people);
+		var filteredParents= searchParents (person.parents,people);
+		var selectedParents= showParents(filteredParents);
+		mainMenu(selectedParents,people);
 	break;
 		case "current spouse":
 		
@@ -130,19 +130,25 @@ do{
 	mainMenu(person.parents,people,searchParents);		
 }}
 
-function showParents(parents, people){
-	people.filter(function(person){
-				if(person.includes(parents[0]) || person.includes(parents[1])){
-					if(!parents[1]){
-						return "Parent(s):"+person[0].firstName+" "+person[0].lastName;
-					}else if(parents[0]){
-					return 	"Parent(s):"+person[0].firstName+" "+person[0].lastName+" and "+person[1].firstName+" "+person[1].lastName;
-					}
-				} else{
-					return "None"
-					}
-			});
+function showParents(filteredParents){
+	 		var message=""; 
+ 		for (var i=0; i < filteredParents.length; i++){
+ 			message += (" Parents are: "+filteredParents[i].parents );			
+ 		}
+	alert(message);
 }
+
+function searchParents(parents, people){
+	return people.filter(function(person){
+		if(person.parents.includes(parents[0]) || person.parents.includes(parents[1])){
+			if(person.parents[0] || person.parents[1]){
+				return true;
+			}else if(!person.parents){
+			return false;
+			}
+				} 
+	})};
+
 
 
 
