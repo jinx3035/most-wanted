@@ -7,8 +7,8 @@ function initMostWanted(people){
 	switch(searchType){
 		case "name":
 			var person = searchByName(prompt("What is the persons first name?"), prompt("And now the last name please?"), people);
-			if (person){
-			mainMenu(person, people);	
+			if (person.length > 0){
+			mainMenu(person[0], people);	
 		} else {
 			alert("Please enter a relavent name.");
 			mainMenu(person, people);
@@ -40,7 +40,9 @@ function initMostWanted(people){
 }
 
 function searchByName(firstName, lastName, people){
-	var person= people.filter(person =>person.firstName === firstName && person.lastName === lastName);
+	var person = people.filter(function(person){
+		return (person.firstName === firstName && person.lastName === lastName);
+	});
 	return person;
 }
 
@@ -85,7 +87,7 @@ function mainMenu(person, people){
 	break;
 		case "family":
 		var filteredParents= getFamily(person.parents,people);
-
+		
 		alert("Parents: "+filteredParents);
 		mainMenu(person, people);
 	break;
@@ -130,11 +132,11 @@ do{
 
 function showParents(parents, people){
 	people.filter(function(person){
-				if(person.id.includes(parents[0]) || person.id.includes(parents[1])){
+				if(person.includes(parents[0]) || person.includes(parents[1])){
 					if(!parents[1]){
-						return "Parent(s):"+person.parents[0].firstName+" "+person.parents[0].lastName;
+						return "Parent(s):"+person[0].firstName+" "+person[0].lastName;
 					}else if(parents[0]){
-					return 	"Parent(s):"+person.parents[0].firstName+" "+person.parents[0].lastName+" and "+person.parents[1].firstName+" "+person.parents[1].lastName;
+					return 	"Parent(s):"+person[0].firstName+" "+person[0].lastName+" and "+person[1].firstName+" "+person[1].lastName;
 					}
 				} else{
 					return "None"
