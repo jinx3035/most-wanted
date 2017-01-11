@@ -44,9 +44,6 @@ function searchByName(firstName, lastName, people){
 	return person[0];
 }
 
-
-
-
 function searchByAttributes(height, weight, age, sex, eyeColor,occupation,people){
 	return people.filter(function(person){
 		if (height && (height != person.height)){
@@ -78,23 +75,19 @@ function pickPerson(filteredList){
 
 
 
-
-
-
-
 function mainMenu(person, people){
-/*	if(!person){
-		alert("Criteria not found.");
-		initMostWanted(people);
-	}
-*/	var displayInfo = prompt("Would you like to search for: "+person.firstName+ " " +person.lastName+"'s 'info', 'family', 'next of kin' or 'decendents'? Otherwise type 'quit' or 'restart'.");
+
+	var displayInfo = prompt("Would you like to search for: "+person.firstName+ " " +person.lastName+"'s 'info', 'family', 'next of kin' or 'decendents'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 		case "info":
 		getPersoninfo(person, people);
 
 	break;
 		case "family":
-		getFamily(person.parents,people);
+		var filteredParents= getFamily(person.parents,people);
+		var selectedParents= showParents(filteredParents);
+
+		alert("Parent(s):"+person.parents[0]+" "+person.parents[1]);
 
 	break;
 		case "nextOfKin":
@@ -123,29 +116,33 @@ function getPersoninfo(person, people){
 function getFamily(parents, people){
 do{
 		var searchParents = prompt("Would you like to search for parents or current spouse?");
-	}while(!(searchParents == "parents" || searchType == "current spouse"));
+	}while(!searchParents == "parents" || searchType == "current spouse");
 	switch(searchParents){
 		case "parents":
+
 			return people.filter(function(person){
 				
 				if(person.parents.includes(parents[0]) || person.parents.includes(parents[1])){
-				//if((people.parents == person.parents[0] && person.parents[1]) || people.parents == person.parents[1].id){
 					return true;
 				} else{
 					return false;
-					alert("Parent(s):"+person.parents[0]+" "+person.parents[1]);
-
 					}
-			});	
+			});
 	break;
 		case "current spouse":
 		
 
 	break;
 	default:
-
 	mainMenu(person.parents,people,searchParents);		
 }}
+
+function showParents(filteredParents){
+
+}
+
+
+
 
 
 function getNextOfKin(person, people){
