@@ -8,12 +8,12 @@ function initMostWanted(people){
 		case "name":
 			var person = searchByName(prompt("What is the persons first name?"), prompt("And now the last name please?"), people);
 			//This should be different, alert below does not work
-			if (person){
-			mainMenu(person[0], people);	
-		} else {
-			alert("Please enter a relavent name.");
-			mainMenu(person, people);
-		}
+			if (!person){
+				alert("Please enter a relavent name.");
+				mainMenu(person, people);
+			} else {
+				mainMenu(person[0], people);	
+			}
 			
 		break;
 		case "attributes":
@@ -130,10 +130,10 @@ do{
 }}
 
 function searchForParents(parents, people){
-	return people.filter(function(person){
+	var parents= people.filter(function(person){
 			if(person.parents[0] || person.parents[1]){
-				return person.parents[0] && person.parents[1];
-			}else if(person.parents= 0){
+				return parents.id;
+			}else if(!person.parents){
 			return alert("nope");
 			}
 	}	)};
