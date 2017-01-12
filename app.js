@@ -1,6 +1,6 @@
 function initMostWanted(people){
 
-	alert("Welcome to my Super Secret government search engine!");	
+	alert("Welcome to my Super Secret government search engine!");
 	do{
 		var searchType = prompt("Do you want to search by name or attributes? Enter word 'name' or 'attributes' here.");
 	}while(!(searchType == "name" || searchType == "attributes"));
@@ -12,16 +12,16 @@ function initMostWanted(people){
 				alert("Please enter a relavent name.");
 				mainMenu(person, people);
 			} else {
-				mainMenu(person[0], people);	
+				mainMenu(person[0], people);
 			}
-			
+
 		break;
 		case "attributes":
-		
+
 			var height = prompt("What is the height? If not then leave blank.");
 			var weight = prompt("What is the weight? If not then leave blank.");
 			var age = prompt("Do you know the persons age? If not then leave blank.");
-			var sex= prompt("What is the sex? If not then leave blank.");
+			var gender= prompt("What is the sex? If not then leave blank.");
 			var eyeColor = prompt("What is the eye color? If not then leave blank.");
 			var occupation = prompt("What is their occupation? If not then leave blank.");
 
@@ -67,13 +67,13 @@ function searchByAttributes(height, weight, age, gender, eyeColor,occupation,peo
 }
 
 function pickPerson(filteredList){
- 		var message=""; 
- 		for (var i=0; i < filteredList.length; i++){
- 			message += (i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);			
- 		}
+	var message="";
+	for (var i=0; i < filteredList.length; i++){
+		message += (i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);
+	}
 	alert(message);
 	var chosenPerson = prompt("Type the number of the person you would like to know more about?");
-	 return filteredList[chosenPerson];
+	return filteredList[chosenPerson];
 }
 
 
@@ -118,46 +118,47 @@ do{
 	}while(!(searchFamily == "parents" || searchFamily == "current spouse"));
 	switch(searchFamily){
 		case "parents":
-		var filteredParents= searchForParents(person.parents,people);
-		showParents(filteredParents);
+		var filteredParents=searchForParents(person.parents,people);
+		showParents(filteredParents,people);
 		mainMenu(person,people);
 	break;
 		case "current spouse":
-		
+
 
 	break;
 			case "kids":
-		
+
 
 	break;
 			case "siblings":
-		
+
 
 	break;
 	default:
 }}
 
-function searchForParents(parents, people){
-	var parents= people.filter(function(person){
-			if(person.parents[0] || person.parents[1]){
-				return parents.id;
-			}else if(!person.parents){
-			return alert("nope");
+function searchForParents(parents,people){
+		return people.filter(function(p){
+			if(p.id == parents[0].id || p.id == parents[1].id){
+				return true;
+			} else if(p.id == (!(parents))){
+				alert("This person has no parents.")
+				return false;
 			}
-	}	)};
-	
+		});
+	}
 
-function showParents(filteredParents,people){
-	 		var message=""; 
- 		for (var i=0; i < filteredParents.length; i++){
- 			message += (" Parents are: "+filteredParents[i].parents);			
- 		}
+	
+	function showParents(filteredParents,people){
+		var message="hello";
+		for (var i=0; i < filteredParents.length; i++){
+			message += (" Parents are: "+filteredParents[i].parents);
+		}
 	alert(message);
 	return message;
 }
 
-
-
+/*
 
 
 function getNextOfKin(person, people){
@@ -168,7 +169,7 @@ function getNextOfKin(person, people){
 function getDecendents(person, people){
 
 }
-	
+*/	
 
 
 
