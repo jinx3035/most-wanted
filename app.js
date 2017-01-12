@@ -55,7 +55,7 @@ function searchByAttributes(height, weight, age, gender, eyeColor,occupation,peo
 			return false;
 		} if (age && (age != person.dob)){
 			return false;
-		} if (gender && (sex != person.gender)){
+		} if (gender && (gender != person.gender)){
 			return false;
 		} if (eyeColor && (eyeColor != person.eyeColor)){
 			return false;
@@ -131,20 +131,20 @@ do{
 
 function searchForParents(parents, people){
 	return people.filter(function(person){
-		if(person.parents.includes(parents[0]) || person.parents.includes(parents[1])){
 			if(person.parents[0] || person.parents[1]){
-				return true;
-			}else if(!person.parents){
+				return person.parents[0] && person.parents[1];
+			}else if(person.parents= 0){
 			return alert("nope");
 			}
-				} 
-	})};
+	}	)};
+	
 
 function showParents(filteredParents,people){
 	 		var message=""; 
  		for (var i=0; i < filteredParents.length; i++){
  			message += (" Parents are: "+filteredParents[i].parents);			
  		}
+	alert(message);
 	return message;
 }
 
