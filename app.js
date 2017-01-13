@@ -24,13 +24,9 @@ function initMostWanted(people){
 			var eyeColor = prompt("What is the eye color? If not then leave blank.");
 			var occupation = prompt("What is their occupation? If not then leave blank.");
 
-			// find a subset from your list of people
 			var filteredList = searchByAttributes(height, weight, age, gender, eyeColor,occupation, people);
-
-			// allow the user to select a person from the subset
 			var selectedPerson = pickPerson(filteredList);
 
-			// send the selected person to the main menu where the user can view information about them
 			mainMenu(selectedPerson, people);
 		break;
 		default:
@@ -46,7 +42,7 @@ function searchByName(firstName, lastName, people){
 	return (person[0]);
 }
 
-function searchByAttributes(height, weight, age, gender, eyeColor,occupation,people){
+function searchByAttributes(height, weight, age, gender, eyeColor, occupation, people){
 	return people.filter(function(person){
 		if (height && (height != person.height)){
 			return false;
@@ -68,7 +64,7 @@ function searchByAttributes(height, weight, age, gender, eyeColor,occupation,peo
 function pickPerson(filteredList){
 	var message="";
 	for (var i=0; i < filteredList.length; i++){
-		message += (i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);
+		message += (" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);
 	}
 	alert(message);
 	var chosenPerson = prompt("Type the number of the person you would like to know more about?");
@@ -117,7 +113,7 @@ do{
 	}while(!(searchFamily == "parents" || searchFamily == "current spouse"));
 	switch(searchFamily){
 		case "parents":
-		var filteredParents=searchForParents(person.parents,people);
+		var parents = searchForParents(person.parents,people);
 		showParents(filteredParents,people);
 		mainMenu(person,people);
 	break;
