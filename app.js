@@ -139,16 +139,16 @@ do{
 
 function searchForParents(parents,people){
 		return people.filter(function(p){
-			if(p.id == parents[0].id || p.id == parents[1].id){
+			if(p == parents[0] || p == parents[1]){
 				return true;
-			} else if(p.id == (!(parents))){
-				alert("This person has no parents.")
+			} else if(p == (!(parents))){
+				alert("This person has no parents.");
 				return false;
 			}
 		});
 	}
 
-	
+
 	function showParents(filteredParents,people){
 		var message="hello";
 		for (var i=0; i < filteredParents.length; i++){
@@ -157,7 +157,6 @@ function searchForParents(parents,people){
 	alert(message);
 	return message;
 }
-
 /*
 
 
@@ -169,14 +168,4 @@ function getNextOfKin(person, people){
 function getDecendents(person, people){
 
 }
-*/	
-
-
-
-
-
-
-
-
-
-
+*/
