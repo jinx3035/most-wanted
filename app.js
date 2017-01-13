@@ -7,12 +7,11 @@ function initMostWanted(people){
 	switch(searchType){
 		case "name":
 			var person = searchByName(prompt("What is the persons first name?"), prompt("And now the last name please?"), people);
-			//This should be different, alert below does not work
 			if (person.length <= 0){
 				alert("Please enter a relavent name.");
-				mainMenu(person, people);
+				initMostWanted(people);
 			} else {
-				mainMenu(person[0], people);
+				mainMenu(person, people);
 			}
 
 		break;
@@ -44,7 +43,7 @@ function searchByName(firstName, lastName, people){
 	var person = people.filter(function(person){
 		return (person.firstName === firstName && person.lastName === lastName);
 	});
-	return person;
+	return (person[0]);
 }
 
 function searchByAttributes(height, weight, age, gender, eyeColor,occupation,people){
@@ -141,8 +140,7 @@ function searchForParents(parents,people){
 		return people.filter(function(p){
 			if(p == parents[0] || p == parents[1]){
 				return true;
-			} else if(p == (parents < 0)){
-				alert("This person has no parents.");
+			} else if(p == (parents.length < 0)){
 				return false;
 			}
 		});
@@ -150,9 +148,9 @@ function searchForParents(parents,people){
 
 
 	function showParents(filteredParents,people){
-		var message="hello";
+		var message="This person has no parents.";
 		for (var i=0; i < filteredParents.length; i++){
-			message += (" Parents are: "+filteredParents[i].parents);
+			message += (" Parents are: "+filteredParents[0].firstName+ " " +filteredParents[0].lastName+" && "+filteredParents[1].firstName+" "+filteredParents[1].lastName);
 		}
 	alert(message);
 	return message;
