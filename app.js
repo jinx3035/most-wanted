@@ -8,7 +8,7 @@ function initMostWanted(people){
 		case "name":
 			var person = searchByName(prompt("What is the persons first name?"), prompt("And now the last name please?"), people);
 			//This should be different, alert below does not work
-			if (!person){
+			if (person.length <= 0){
 				alert("Please enter a relavent name.");
 				mainMenu(person, people);
 			} else {
@@ -141,7 +141,7 @@ function searchForParents(parents,people){
 		return people.filter(function(p){
 			if(p == parents[0] || p == parents[1]){
 				return true;
-			} else if(p == (!(parents))){
+			} else if(p == (parents < 0)){
 				alert("This person has no parents.");
 				return false;
 			}
