@@ -67,7 +67,11 @@ function pickPerson(filteredList){
 		message += (i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);
 	}
 		alert(message);
-		var choosePerson = prompt("Type the number of the person you would like to know more about?");
+		var choosePerson = prompt("Type the number of the person you would like to know more about? If none press enter.");
+		if(!choosePerson){
+			alert("Search criteria does not match the database.");
+			searchByAttributes(height, weight, age, gender, eyeColor,occupation, people);
+		}
 	return filteredList[choosePerson];
 
 }
