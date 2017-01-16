@@ -44,33 +44,32 @@ function searchByName(firstName, lastName, people){
 
 function searchByAttributes(height, weight, age, gender, eyeColor, occupation, people){
 	return people.filter(function(person){
-		if (height && (height == person.height)){
-			return true;
-		} if (weight && (weight == person.weight)){
-			return true;
-		} if (age && (age == person.dob)){
-			return true;
-		} if (gender && (gender == person.gender)){
-			return true;
-		} if (eyeColor && (eyeColor == person.eyeColor)){
-			return true;
-		} if (occupation && (occupation == person.occupation)){
-			return true;
+		if (height && (height != person.height)){
+			return false;
+		} if (weight && (weight != person.weight)){
+			return false;
+		} if (age && (age != person.dob)){
+			return false;
+		} if (gender && (gender != person.gender)){
+			return false;
+		} if (eyeColor && (eyeColor != person.eyeColor)){
+			return false;
+		} if (occupation && (occupation != person.occupation)){
+			return false;
 		}
-		return false;
+		return true;
 	});
 }
 
 function pickPerson(filteredList){
 	var message="";
 	for (var i=0; i < filteredList.length; i++){
-		message += (" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);
+		message += (i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);
 	}
-	if (chosenPerson == undefined) {
 		alert(message);
-		chosenPerson = prompt("Type the number of the person you would like to know more about?");
-	}
-	return filteredList[chosenPerson];
+		var choosePerson = prompt("Type the number of the person you would like to know more about?");
+	return filteredList[choosePerson];
+
 }
 
 
@@ -115,7 +114,7 @@ do{
 	}while(!(searchFamily == "parents" || searchFamily == "current spouse"));
 	switch(searchFamily){
 		case "parents":
-		var parents = searchForParents(person.parents,people);
+		var filteredParents = searchForParents(person.parents,people);
 		showParents(filteredParents,people);
 		mainMenu(person,people);
 	break;
