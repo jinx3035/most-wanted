@@ -44,20 +44,20 @@ function searchByName(firstName, lastName, people){
 
 function searchByAttributes(height, weight, age, gender, eyeColor, occupation, people){
 	return people.filter(function(person){
-		if (height && (height != person.height)){
-			return false;
-		} if (weight && (weight != person.weight)){
-			return false;
-		} if (age && (age != person.dob)){
-			return false;
-		} if (gender && (gender != person.gender)){
-			return false;
-		} if (eyeColor && (eyeColor != person.eyeColor)){
-			return false;
-		} if (occupation && (occupation != person.occupation)){
-			return false;
+		if (height && (height == person.height)){
+			return true;
+		} if (weight && (weight == person.weight)){
+			return true;
+		} if (age && (age == person.dob)){
+			return true;
+		} if (gender && (gender == person.gender)){
+			return true;
+		} if (eyeColor && (eyeColor == person.eyeColor)){
+			return true;
+		} if (occupation && (occupation == person.occupation)){
+			return true;
 		}
-		return true;
+		return false;
 	});
 }
 
@@ -66,8 +66,10 @@ function pickPerson(filteredList){
 	for (var i=0; i < filteredList.length; i++){
 		message += (" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);
 	}
-	alert(message);
-	var chosenPerson = prompt("Type the number of the person you would like to know more about?");
+	if (chosenPerson == undefined) {
+		alert(message);
+		chosenPerson = prompt("Type the number of the person you would like to know more about?");
+	}
 	return filteredList[chosenPerson];
 }
 
@@ -134,7 +136,7 @@ do{
 
 function searchForParents(parents,people){
 		return people.filter(function(p){
-			if(p == parents[0] || p == parents[1]){
+			if(p.id == parents[0] || p.id == parents[1]){
 				return true;
 			} else if(p == (parents.length < 0)){
 				return false;
