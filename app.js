@@ -16,13 +16,11 @@ function initMostWanted(people){
 
 		break;
 		case "attributes":
-
-			var height = prompt("What is the height? If not then leave blank.");
-			var weight = prompt("What is the weight? If not then leave blank.");
-			var age = prompt("Do you know the persons age? If not then leave blank.");
-			var gender= prompt("What is the sex? If not then leave blank.");
-			var eyeColor = prompt("What is the eye color? If not then leave blank.");
-			var occupation = prompt("What is their occupation? If not then leave blank.");
+			var gender= prompt("Is the person male or female? If not known leave blank.");
+			var height = prompt("What is the height? If not known leave blank.");
+			var weight = prompt("What is the weight? If not known leave blank.");
+			var age = prompt("Do you know the persons age? If not leave blank.");
+			var occupation = prompt("What is their occupation? If not known leave blank.");
 
 			var filteredList = searchByAttributes(height, weight, age, gender, eyeColor,occupation, people);
 			var selectedPerson = pickPerson(filteredList);
@@ -42,21 +40,14 @@ function searchByName(firstName, lastName, people){
 	return (person[0]);
 }
 
-function searchByAttributes(height, weight, age, gender, eyeColor, occupation, people){
-	return people.filter(function(person){
-		if (height && (height != person.height)){
-			return false;
-		} if (weight && (weight != person.weight)){
-			return false;
-		} if (age && (age != person.dob)){
-			return false;
-		} if (gender && (gender != person.gender)){
-			return false;
-		} if (eyeColor && (eyeColor != person.eyeColor)){
-			return false;
-		} if (occupation && (occupation != person.occupation)){
-			return false;
-		}
+function searchByAttributes(height, weight, age, gender, occupation, people){
+	return people.filter(function(person)
+	{
+		if (gender && (gender != person.gender)){return false;}
+		if (height && (height != person.height)){return false;}
+		if (weight && (weight != person.weight)){return false;} 
+		if (age && (age != person.dob)){return false;}  
+		if (occupation && (occupation != person.occupation)){return false;}
 		return true;
 	});
 }
@@ -67,20 +58,18 @@ function pickPerson(filteredList){
 		message += (i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);
 	}
 		alert(message);
-		var choosePerson = prompt("Type the number of the person you would like to know more about? If none press enter.");
+		var choosePerson = prompt("Type the number of the person you would like to know more about? If none exists press enter.");
 		if(!choosePerson){
 			alert("Search criteria does not match the database.");
-			searchByAttributes(height, weight, age, gender, eyeColor,occupation, people);
 		}
 	return filteredList[choosePerson];
 
 }
 
 
-
 function mainMenu(person, people){
 
-	var displayInfo = prompt("Would you like to search for: "+person.firstName+ " " +person.lastName+"'s 'info', 'family', 'next of kin' or 'decendents'? Otherwise type 'quit' or 'restart'.");
+	var displayInfo = prompt("Would you like to search for: "+person.firstName+ " " +person.lastName+"'s 'info', 'family', 'next of kin' or 'descendants'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 		case "info":
 		getPersonInfo(person, people);
@@ -91,18 +80,16 @@ function mainMenu(person, people){
 	break;
 		case "nextOfKin":
 		getNextOfKin(person,people);
-
 	break;
-		case "decendents":
-		getDecendents(person,people);
-
+		case "descendants":
+		var descendantsFound = GetDecendants(person,people);
+		ShowDescendants(descendantsFound,people);
+		mainMenu(person,people);
 	break;
 		case "quit":
-
 	break;
 		case "restart":
 		initMostWanted(people);
-
 	break;
 	default:
 }}
@@ -156,15 +143,33 @@ function searchForParents(parents,people){
 	alert(message);
 	return message;
 }
-/*
 
+function GetDecendants(person,people){
+	var descendants = [];
+	var id = person.id;
+	for(var i=0; i<data.length; i++){
+		var person = data[i];
+		if(person.parents.indexOf(parseInt(id))>-1){
+			descendants.push(person);
+			var foundDescendants = GetDecendants(person,people);
+			if(foundDescendants){
+				descendants = descendants.concat(foundDescendants);
+			}
+		}
+	}
+	if(descendants.length === 0){
+		return false;
+	}
+	return descendants;
+}
 
-function getNextOfKin(person, people){
-
+function ShowDescendants(descendantsFound,people){
+	var message="";
+	for(var i=0; i<descendantsFound.length; i++){
+		message += (descendantsFound[i].firstName+" "+descendantsFound[i].lastName+" ");
+	}
+	alert("Descendants found \n"+message);
+	return descendantsFound;
 }
 
 
-function getDecendents(person, people){
-
-}
-*/
