@@ -64,13 +64,16 @@ function pickPerson(filteredList){
 }
 
 function mainMenu(person, people){
-	var displayInfo = prompt("Would you like to search for: "+person.firstName+ " " +person.lastName+"'s 'info', 'immediate family', or 'descendants'? Otherwise type 'quit' or 'restart'.");
+	var displayInfo = prompt("Would you like to search for: "+person.firstName+ " " +person.lastName+"'s 'info', 'immediate family', 'next of kin' or 'descendants'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 			case "info":
 			GetPersonInfo(person, people);
 		break;
 			case "immediate family":
 			GetFamily(person,people);
+		break;
+			case "nextOfKin":
+			getNextOfKin(person,people);
 		break;
 			case "descendants":
 			var descendantsFound = GetDecendants(person,people);
