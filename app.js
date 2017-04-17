@@ -6,12 +6,12 @@ function initMostWanted(people){
 	}while(!(searchType == "name" || searchType == "attributes"));
 	switch(searchType){
 		case "name":
-			var person = searchByName(prompt("What is the persons first name?"), prompt("And now the last name please?"), people);
+			var person = SearchByName(prompt("What is the persons first name?"), prompt("And now the last name please?"), people);
 			if (person.length <= 0){
 				alert("Please enter a relavent name.");
 				initMostWanted(people);
 			} else {
-				mainMenu(person, people);
+				MainMenu(person, people);
 			}
 		break;
 		case "attributes":
@@ -21,9 +21,9 @@ function initMostWanted(people){
 			var age = prompt("Do you know the persons age? If not leave blank.");
 			var occupation = prompt("What is their occupation? If not known leave blank.");
 
-			var filteredList = searchByAttributes(height, weight, age, gender, eyeColor,occupation, people);
-			var selectedPerson = pickPerson(filteredList);
-			mainMenu(selectedPerson, people);
+			var filteredList = SearchByAttributes(height, weight, age, gender, eyeColor,occupation, people);
+			var selectedPerson = PickPerson(filteredList);
+			MainMenu(selectedPerson, people);
 		break;
 		default:
 		alert("There was an error processing your request.");
@@ -31,14 +31,14 @@ function initMostWanted(people){
 	}
 }
 
-function searchByName(firstName, lastName, people){
+function SearchByName(firstName, lastName, people){
 	var person = people.filter(function(person){
 		return (person.firstName === firstName && person.lastName === lastName);
 	});
 	return (person[0]);
 }
 
-function searchByAttributes(height, weight, age, gender, occupation, people){
+function SearchByAttributes(height, weight, age, gender, occupation, people){
 	return people.filter(function(person)
 	{
 		if (gender && (gender != person.gender)){return false;}
@@ -50,7 +50,7 @@ function searchByAttributes(height, weight, age, gender, occupation, people){
 	});
 }
 
-function pickPerson(filteredList){
+function PickPerson(filteredList){
 	var message="";
 	for (var i=0; i < filteredList.length; i++){
 		message += (i +" Name: "+filteredList[i].firstName+ " " +filteredList[i].lastName);
@@ -63,7 +63,7 @@ function pickPerson(filteredList){
 	return filteredList[choosePerson];
 }
 
-function mainMenu(person, people){
+function MainMenu(person, people){
 	var displayInfo = prompt("Would you like to search for: "+person.firstName+ " " +person.lastName+"'s 'info', 'immediate family', or 'descendants'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 			case "info":
@@ -75,7 +75,7 @@ function mainMenu(person, people){
 			case "descendants":
 			var descendantsFound = GetDecendants(person,people);
 			ShowDescendants(descendantsFound,people);
-			mainMenu(person,people);
+			MainMenu(person,people);
 		break;
 			case "quit":
 		break;
@@ -88,38 +88,42 @@ function mainMenu(person, people){
 
 function GetPersonInfo(person, people){
 	alert("Name is: "+person.firstName+" "+person.lastName+"\nGender is "+person.gender+"\nBirthday is: "+person.dob+"\nHeight is: "+person.height+"\nWeight is: "+person.weight+"\nOccupation is: "+person.occupation+".");
-	mainMenu(person,people);
+	MainMenu(person,people);
 }
 
 function GetFamily(person, people){
 	do{
-		var searchFamily = prompt("Search for 'parents', 'kids', 'siblings', or 'current spouse' ?");
+		var searchFamily = prompt("Search for 'parents', 'kids', 'siblings', or 'current spouse' \n Type 'return' for the main menu or 'restart' to begin a new search.");
 		}while(!(searchFamily == "parents" || searchFamily == "kids" || searchFamily == "siblings" || searchFamily == "current spouse"));
 		switch(searchFamily){
-		case "parents":
-		var filteredParents = SearchForParents(person.parents,people);
-		ShowParents(filteredParents,people);
-		mainMenu(person,people);
-		break;
-		case "kids":
-		var kidsFound = GetKids(person,people);
-		ShowKids(kidsFound, people);
-		GetFamily();
-		break;
-		case "siblings":
-		var siblingsFound = GetSiblings(person, people);
-		ShowSiblings(siblingsFound, people)
-		GetFamily();
-		break;
-		case "current spouse":
-		var spouseFound = GetSpouse(person, people);
-		ShowSpouse(spouseFound, people)
-		GetFamily();
-		break;
-		case "return":
-		mainMenu();
+			case "parents":
+				var filteredParents = SearchForParents(person.parents,people);
+				ShowParents(filteredParents,people);
+				MainMenu(person,people);
+			break;
+			case "kids":
+				var kidsFound = GetKids(person,people);
+				ShowKids(kidsFound, people);
+				GetFamily();
+			break;
+			case "siblings":
+				var siblingsFound = GetSiblings(person, people);
+				ShowSiblings(siblingsFound, people)
+				GetFamily();
+			break;
+			case "current spouse":
+				var spouseFound = GetSpouse(person, people);
+				ShowSpouse(spouseFound, people)
+				GetFamily();
+			break;
+			case "return":
+				GetFamily();
+			break;
+			case "restart":
+				initMostWanted();
+			break;
 		default:
-		mainMenu();
+		MainMenu();
 	}
 }
 
