@@ -13,7 +13,6 @@ function initMostWanted(people){
 			} else {
 				mainMenu(person, people);
 			}
-
 		break;
 		case "attributes":
 			var gender= prompt("Is the person male or female? If not known leave blank.");
@@ -24,7 +23,6 @@ function initMostWanted(people){
 
 			var filteredList = searchByAttributes(height, weight, age, gender, eyeColor,occupation, people);
 			var selectedPerson = pickPerson(filteredList);
-
 			mainMenu(selectedPerson, people);
 		break;
 		default:
@@ -63,17 +61,14 @@ function pickPerson(filteredList){
 			alert("Search criteria does not match the database.");
 		}
 	return filteredList[choosePerson];
-
 }
 
 
 function mainMenu(person, people){
-
 	var displayInfo = prompt("Would you like to search for: "+person.firstName+ " " +person.lastName+"'s 'info', 'family', 'next of kin' or 'descendants'? Otherwise type 'quit' or 'restart'.");
 	switch(displayInfo){
 		case "info":
 		getPersonInfo(person, people);
-
 	break;
 		case "family":
 		getFamily(person,people);
@@ -101,7 +96,7 @@ function getPersonInfo(person, people){
 
 function getFamily(person, people){
 do{
-		var searchFamily = prompt("Would you like to search for parents or current spouse?");
+	var searchFamily = prompt("Would you like to search for parents or current spouse?");
 	}while(!(searchFamily == "parents" || searchFamily == "current spouse"));
 	switch(searchFamily){
 		case "parents":
@@ -111,14 +106,11 @@ do{
 	break;
 		case "current spouse":
 
-
 	break;
 			case "kids":
 
-
 	break;
 			case "siblings":
-
 
 	break;
 	default:
